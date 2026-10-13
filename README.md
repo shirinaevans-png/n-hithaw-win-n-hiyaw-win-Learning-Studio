@@ -50,3 +50,7 @@ Open `linguistics.html` through the Morphology & word builder link on the homepa
 Open `vta.html` from the navigation links on the home page or linguistics page. `vta.js` includes separate Woodland (TH) and Plains (Y) curated form data, tables, an interactive morpheme-based builder, and a relation quiz. This is an introductory VTA module rather than a full automatic conjugator. Both sets display source references. The Plains rule examples were taken from the earlier user-provided grammar workbook; Woodland examples are cited to Solomon Ratt’s Beginning Woods Cree, Chapter 8.
 
 Files: `vta.html`, `vta.css`, and `vta.js` must all be uploaded alongside the rest of the project.
+
+
+## Expanded root and word construction
+Open `builder.html` for a separate TH (Woodland) and Y (Plains) word-construction lab with documented morphology examples for VTA direct/inverse, VAI, VTI-1, and Woodland possessive nouns. Buttons and navigation have responsive/focus styling. This is a curated exercise, not an unrestricted morphology engine.
