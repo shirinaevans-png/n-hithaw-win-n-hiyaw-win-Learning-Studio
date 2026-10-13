@@ -40,3 +40,7 @@ All progress is stored in browser localStorage, not transmitted to a server. Pro
 Double-click `index.html` to open it directly in a browser. No local server is needed. The vocabulary lives in the bundled `data.js` file. To publish on GitHub Pages, upload all extracted website files to the repository root.
 
 **Important:** If the site still shows an older error after updating GitHub Pages, wait for deployment and hard-refresh the webpage with Ctrl+Shift+R.
+
+
+## Morphology / word-formation addition
+Open `linguistics.html` through the Morphology & word builder link on the homepage. Includes verb-class recognition (VAI/VII/VTI/VTA), segmented attested `wîki` forms, a simple word-building activity, and conjugation practice. Example forms are attributed to Solomon Ratt, *Beginning Woods Cree* (2026), printed pp. 4–5, 13, and 15. This introductory module is not a complete morphophonological analyzer or generative conjugator.
