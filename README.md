@@ -44,3 +44,9 @@ Double-click `index.html` to open it directly in a browser. No local server is n
 
 ## Morphology / word-formation addition
 Open `linguistics.html` through the Morphology & word builder link on the homepage. Includes verb-class recognition (VAI/VII/VTI/VTA), segmented attested `wîki` forms, a simple word-building activity, and conjugation practice. Example forms are attributed to Solomon Ratt, *Beginning Woods Cree* (2026), printed pp. 4–5, 13, and 15. This introductory module is not a complete morphophonological analyzer or generative conjugator.
+
+
+## VTA direct/inverse lab: both dialects
+Open `vta.html` from the navigation links on the home page or linguistics page. `vta.js` includes separate Woodland (TH) and Plains (Y) curated form data, tables, an interactive morpheme-based builder, and a relation quiz. This is an introductory VTA module rather than a full automatic conjugator. Both sets display source references. The Plains rule examples were taken from the earlier user-provided grammar workbook; Woodland examples are cited to Solomon Ratt’s Beginning Woods Cree, Chapter 8.
+
+Files: `vta.html`, `vta.css`, and `vta.js` must all be uploaded alongside the rest of the project.
