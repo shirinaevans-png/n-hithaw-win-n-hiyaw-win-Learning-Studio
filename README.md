@@ -54,3 +54,6 @@ Files: `vta.html`, `vta.css`, and `vta.js` must all be uploaded alongside the re
 
 ## Expanded root and word construction
 Open `builder.html` for a separate TH (Woodland) and Y (Plains) word-construction lab with documented morphology examples for VTA direct/inverse, VAI, VTI-1, and Woodland possessive nouns. Buttons and navigation have responsive/focus styling. This is a curated exercise, not an unrestricted morphology engine.
+
+## Navigation update
+The site title is a Home link on every page. VTA Direct & Inverse and Morphology & Word Builder are in the homepage navigation, not buried beneath the vocabulary library.
