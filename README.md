@@ -23,3 +23,7 @@ The builder now searches all 1,905 dictionary entries. Morphological constructio
 - Where the original SROw form is straightforward and the reference table has a mapping, a **provisional automatic syllabics spelling** is shown with an explicit status note. These are NOT claimed to be speaker-verified or complete; complex spellings are left unconverted. In the vocabulary display, select `Roman + syllabics where available`.
 - Do not upload reproduced dictionary illustrations, animal-card photographs or book pages without applicable permissions. The Eeyou Istchee map refers to an Eastern Cree region and is not suitable as a TH or Y territory map.
 - Full sourced textbook contents, copyrighted images and long excerpts have not been added. The original dictionary's publication rights must be considered before public distribution.
+
+
+## Project credit
+Created, researched, and curated by Shirina Evans. IED 501: Linguistics for Language Revitalization, Final Project. Language sources retain their own authorship and attribution.

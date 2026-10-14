@@ -29,3 +29,8 @@
 /* Creator credit: shown consistently across all studio pages */
 .author-credit{display:block;color:#e8c389;font-size:.82rem;font-weight:600;letter-spacing:.055em;margin-top:.25rem;}
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem;}
+
+/* Consistent, visible creator credit across pages */
+.author-credit{display:block;margin:.25rem 0 .5rem;font-size:.92rem;font-weight:650;letter-spacing:.01em;line-height:1.45;}
+footer{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;justify-content:space-between;align-items:center;}
+footer span:last-child{font-size:.9rem;}
