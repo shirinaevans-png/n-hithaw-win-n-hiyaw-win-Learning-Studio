@@ -30,3 +30,10 @@ Created, researched, and curated by Shirina Evans. IED 501: Linguistics for Lang
 
 
 Update: Conjugation search now includes every dictionary entry classified VAI, VII, VTI or VTA. Source-unassigned dialect entries display clearly as unconfirmed and cannot be mistakenly validated. The two explanatory research panels were removed from the conjugation page. The source-based 64 construction records remain.
+
+
+## October 2026 person-reference and checker update
+The conjugation page now explains person, number, proximate/obviative, demonstrative distance, inclusive/exclusive and direct/inverse distinctions. Its Check all recorded forms button compares a composition against every available recorded form for the chosen dialect and class, not only the selected model. Lack of match is not treated as evidence of ungrammaticality. No unattested paradigm is generated.
+
+
+**October 2026 person-feature expansion:** `person-feature-engine.js` adds actor/undergoer person selections, inclusive/exclusive, plural, proximate/obviative labels, independent/conjunct/imperative selectors, and a direct exact-match checker across all available source records. Missing constructions remain explicitly unverified. See `SOURCE_RULES_AND_LIMITATIONS.md`.
