@@ -10,3 +10,16 @@ The broad vocabulary comes from source-coded workbooks and includes dictionary f
 
 ## Learner experience
 All searchable entries are bundled in `data.js`. Learners do not upload, import, or manage files. Only the site owner updates the repository.
+
+
+## Morphological analysis and sentence-workspace expansion (14 Oct 2026)
+The builder now searches all 1,905 dictionary entries. Morphological construction validation works only on attested pattern rows in `builder-data.js`. Other entries display source spelling with an optional user-created segmentation, clearly marked exploratory. Related-spelling search is not evidence of a common root. Sentence composition validates its selected verb record, not arbitrary surrounding words or full sentence grammar. Dialects remain separate.
+
+**Publication**: This bundled dataset reproduces source-derived vocabulary. Review rights before publication on a public GitHub Pages repository.
+
+## October 2026 update: dialect introductions and syllabics
+- Two new pages: `woodland-introduction.html` and `plains-introduction.html`, linked from the homepage and subpages.
+- Original 1,905 master entries remain intact. A limited set of distinct, attributed Woodland forms from Ratt (2026), pp. 4–17, was added without duplicating existing forms.
+- Where the original SROw form is straightforward and the reference table has a mapping, a **provisional automatic syllabics spelling** is shown with an explicit status note. These are NOT claimed to be speaker-verified or complete; complex spellings are left unconverted. In the vocabulary display, select `Roman + syllabics where available`.
+- Do not upload reproduced dictionary illustrations, animal-card photographs or book pages without applicable permissions. The Eeyou Istchee map refers to an Eastern Cree region and is not suitable as a TH or Y territory map.
+- Full sourced textbook contents, copyrighted images and long excerpts have not been added. The original dictionary's publication rights must be considered before public distribution.
