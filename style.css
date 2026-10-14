@@ -25,3 +25,7 @@
 
 /* Dialect introductions */
 .intro-lesson{max-width:1100px;margin:2rem auto;padding:0 1.2rem}.intro-lesson article{background:white;border:1px solid #dce5df;border-radius:18px;padding:clamp(1.2rem,3vw,2.5rem);margin:1.2rem 0}.intro-lesson h2{font-size:clamp(1.7rem,3vw,2.6rem);margin-top:.3rem}.intro-lesson p,.intro-lesson li{line-height:1.75}.intro-lesson .lead{font-size:1.18rem}.intro-lesson .meta{font-size:.88rem;color:#516961}.intro-lesson .comparison{overflow:auto}.intro-lesson table{border-collapse:collapse;width:100%}.intro-lesson th,.intro-lesson td{text-align:left;border:1px solid #d7e1d9;padding:.85rem;min-width:105px}.intro-lesson th{background:#e7eee8}.intro-lesson .nav-actions{display:flex;flex-wrap:wrap;gap:.75rem}.intro-lesson .nav-actions a{display:inline-block;padding:.85rem 1.15rem;border:1px solid #cad9d3;border-radius:12px;background:#1c403a;color:white;text-decoration:none}.intro-lesson .citation{font-size:.88rem;color:#516961}
+
+/* Creator credit: shown consistently across all studio pages */
+.author-credit{display:block;color:#e8c389;font-size:.82rem;font-weight:600;letter-spacing:.055em;margin-top:.25rem;}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem;}
