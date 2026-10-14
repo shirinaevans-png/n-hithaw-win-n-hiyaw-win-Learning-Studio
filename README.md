@@ -27,3 +27,6 @@ The builder now searches all 1,905 dictionary entries. Morphological constructio
 
 ## Project credit
 Created, researched, and curated by Shirina Evans. IED 501: Linguistics for Language Revitalization, Final Project. Language sources retain their own authorship and attribution.
+
+
+Update: Conjugation search now includes every dictionary entry classified VAI, VII, VTI or VTA. Source-unassigned dialect entries display clearly as unconfirmed and cannot be mistakenly validated. The two explanatory research panels were removed from the conjugation page. The source-based 64 construction records remain.
