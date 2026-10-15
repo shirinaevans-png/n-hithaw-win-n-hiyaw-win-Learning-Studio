@@ -1,5 +1,1 @@
-Cree Learning Studio — created, researched, and curated by Shirina Evans.
-
-Upload the contents of this folder to the existing GitHub Pages repository, replacing matching files.
-The website loads its vocabulary automatically. Learners do not upload files.
-The companion spreadsheet records original sources and grammatical analysis status.
+Cree Learning Studio — website package. Upload the extracted files to the root of the existing GitHub Pages repository, replacing matching filenames. Includes the 5,816-record dictionary and a Cree Law, Kinship & Family learning page. Created, researched, and curated by Shirina Evans.

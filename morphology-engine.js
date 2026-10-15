@@ -16,12 +16,5 @@
  const dictSelect=$('dictResults');if(dictSelect)dictSelect.addEventListener('change',()=>{const val=dictSelect.value;const d=records.find(r=>r.id===val||r.word===val);if(d)selected(d.word);});
  // Existing explorer changes selected word on click; observe its displayed word in a simple event-driven way.
  for(const id of ['dictApply','dictPattern'])$(id)?.addEventListener('click',()=>{const word=$('dictWord')?.textContent||'';selected(word)});
- function syncSentClasses(){const data=models[$('sentenceDialect').value]||[];opts('sentenceClass',[...new Set(data.map(r=>r[0]))].map(x=>[x,x]));syncSentVerbs();}
- function syncSentVerbs(){const data=(models[$('sentenceDialect').value]||[]).filter(r=>r[0]===$('sentenceClass').value);opts('sentenceVerb',data.map((r,i)=>[String(i),r[6]+' · '+r[7]+' ['+r[1]+' '+r[2]+']']));sentence();}
- function current(){return (models[$('sentenceDialect').value]||[]).filter(r=>r[0]===$('sentenceClass').value)[Number($('sentenceVerb').value)];}
- function sentence(){const r=current();let before=$('sentenceBefore').value.trim(),after=$('sentenceAfter').value.trim();$('sentenceOutput').textContent=[before,r?.[6]||'',after].filter(Boolean).join(' ')||'Choose a documented verb';$('sentenceTranslation').textContent=r?'Verb meaning: '+r[7]+' · Source: '+r[8]:'';}
- $('sentenceDialect').addEventListener('change',syncSentClasses);$('sentenceClass').addEventListener('change',syncSentVerbs);$('sentenceVerb').addEventListener('change',sentence);['sentenceBefore','sentenceAfter'].forEach(id=>$(id).addEventListener('input',sentence));
- $('sentenceCheck').addEventListener('click',()=>{const r=current();if(!r)return;const extra=$('sentenceBefore').value.trim()||$('sentenceAfter').value.trim();$('sentenceStatus').textContent='Documented verb: '+r[6]+' ('+r[0]+', '+r[1]+', '+r[2]+'). '+(extra?'The additional words and sentence syntax have NOT been grammatically checked.':'The documented verb form can be practised independently; discourse context may still matter.');});
- $('sentenceClear').addEventListener('click',()=>{$('sentenceBefore').value='';$('sentenceAfter').value='';$('sentenceStatus').textContent='';sentence()});
- syncSentClasses();if(records.length)selected(records[0].word);
+ if(records.length)selected(records[0].word);
 })();
