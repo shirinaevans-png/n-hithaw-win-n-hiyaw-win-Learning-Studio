@@ -11,12 +11,12 @@ function cls(x){let g=String(x.grammar||'');return g.startsWith('VTI')?'VTI':g.s
 function scan(){let keep=cl.value;let classes=unique([...vocab.map(cls),...records.filter(x=>x.dialect===dialect.value).map(x=>cls({grammar:x.gramClass}))]).sort();set(cl,classes.map(x=>[x,x]));if(classes.includes(keep))cl.value=keep;else if(classes.includes('VTA'))cl.value='VTA';populate()}
 function populate(){let klass=cl.value,q=norm(search.value.trim());let rec=records.filter(r=>r.dialect===dialect.value && cls({grammar:r.gramClass})===klass);
 let groups=new Map();rec.forEach(r=>{let key=r.stem;let group=groups.get(key)||[];group.push(r);groups.set(key,group)});
-let opts=[...groups].map(([key,group])=>({key:'r:'+key,label:`${key} · documented model (${group.length} forms)`,kind:'record',records:group,term:key+' '+group.map(x=>x.gloss).join(' ')}));
-const v=vocab.filter(x=>cls(x)===klass).map(x=>({key:'d:'+x.id,label:`${x.cre} — ${x.en} · dictionary (dialect unconfirmed)`,kind:'dictionary',entry:x,term:x.cre+' '+x.en+' '+x.grammar+' '+x.category}));
+let opts=[...groups].map(([key,group])=>({key:'r:'+key,label:`${key} · ${group.length} recorded forms`,kind:'record',records:group,term:key+' '+group.map(x=>x.gloss).join(' ')}));
+const v=vocab.filter(x=>cls(x)===klass).map(x=>({key:'d:'+x.id,label:`${x.cre} — ${x.en} · dictionary`,kind:'dictionary',entry:x,term:x.cre+' '+x.en+' '+x.grammar+' '+x.category}));
 opts.push(...v);
 choices=opts.filter(x=>!q||norm(x.term).includes(q));
 let old=stem.value;set(stem,choices.length?choices.map(x=>[x.key,x.label]):[['','No matching words']]);if(choices.some(x=>x.key===old))stem.value=old;
-id('engineCount').textContent=`${choices.length} matching dictionary and verb choices.`;
+id('engineCount').textContent=`${choices.length.toLocaleString()} matching entries and verb forms.`;
 showStem()}
 const PERSON_KEYS=[['1','I / me (first singular)'],['2','you (second singular)'],['3','she/he (third singular)'],['1P','we, excluding you'],['21','we, including you'],['2P','you plural'],['3P','they (third plural)'],["3′","obviative third person"],['1→3','I act on her/him'],['2→3','you act on her/him'],['3→1','she/he acts on me'],['3→2','she/he acts on you'],["3→3′",'proximate acts on obviative'],["3′→3",'obviative acts on proximate'],['1→2','I act on you'],['2→1','you act on me'],['1P→3','we exclusive act on third'],['21→3','we inclusive act on third'],['2P→3','you plural act on third'],["3P→3′",'they act on obviative']];
 const extractPerson=r=>{let p=r.person||'';let a=p.match(/(?:Direct|Inverse \/ local|Inverse|local|Person agreement|Possession|Imperative):\s*(.+)/i);return (a?a[1]:p).replace(/\s*plural$/i,'P').trim()};

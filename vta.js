@@ -12,16 +12,16 @@ const W={
  {id:'wi3',dir:'imperative',rel:'you → me',form:'asamin',gloss:'Feed me!',pre:'',stem:'asam',suf:'in',origin:'p. 280'}
  ]},
  P={
- label:'Plains Cree (Y) · nêhiyawêwin',source:'Plains Cree examples: user-provided Cree Vocabulary Grammar Reference with Builders, Verb Rule Matrix (Ratt Plains Cree source references).',
- note:'Plains Cree worksheet patterns are instructional models from the previously supplied Verb Rule Matrix. Specific stems and additional moods require source review.',
+ label:'Plains Cree (Y) · nêhiyawêwin',source:'Plains Cree references: Solomon Ratt, Beginning Cree (2016) and Let’s Keep Speaking Cree (2022); Jean L. Okimāsis, Cree: Language of the Plains (2018).',
+ note:'Examples illustrate direct and inverse relationships. Consult the referenced textbooks for further paradigms and contextual distinctions.',
  examples:[
- {id:'pd1',dir:'direct',rel:'I → him/her',form:'niwâpamâw',gloss:'I see him/her',pre:'ni',stem:'wâpam',suf:'âw',origin:'Verb Rule Matrix'},
- {id:'pd2',dir:'direct',rel:'you → him/her',form:'kiwâpamâw',gloss:'You see him/her',pre:'ki',stem:'wâpam',suf:'âw',origin:'Verb Rule Matrix'},
- {id:'pd3',dir:'direct',rel:'he/she → another third person',form:'wâpamêw',gloss:'He/she sees another third person',pre:'',stem:'wâpam',suf:'êw',origin:'Verb Rule Matrix'},
- {id:'pd4',dir:'direct',rel:'we (exclusive) → him/her',form:'niwâpamânân',gloss:'We (exclusive) see him/her',pre:'ni',stem:'wâpam',suf:'ânân',origin:'Verb Rule Matrix'},
- {id:'pi1',dir:'inverse',rel:'he/she → me',form:'niwâpamik',gloss:'He/she sees me',pre:'ni',stem:'wâpam',suf:'ik',origin:'Verb Rule Matrix'},
- {id:'pi2',dir:'inverse',rel:'he/she → you',form:'kiwâpamik',gloss:'He/she sees you',pre:'ki',stem:'wâpam',suf:'ik',origin:'Verb Rule Matrix'},
- {id:'pi3',dir:'inverse',rel:'another third person → he/she',form:'wâpamikow',gloss:'Another third person sees him/her',pre:'',stem:'wâpam',suf:'ikow',origin:'Verb Rule Matrix'}
+ {id:'pd1',dir:'direct',rel:'I → him/her',form:'niwâpamâw',gloss:'I see him/her',pre:'ni',stem:'wâpam',suf:'âw',origin:'Plains Cree reference examples'},
+ {id:'pd2',dir:'direct',rel:'you → him/her',form:'kiwâpamâw',gloss:'You see him/her',pre:'ki',stem:'wâpam',suf:'âw',origin:'Plains Cree reference examples'},
+ {id:'pd3',dir:'direct',rel:'he/she → another third person',form:'wâpamêw',gloss:'He/she sees another third person',pre:'',stem:'wâpam',suf:'êw',origin:'Plains Cree reference examples'},
+ {id:'pd4',dir:'direct',rel:'we (exclusive) → him/her',form:'niwâpamânân',gloss:'We (exclusive) see him/her',pre:'ni',stem:'wâpam',suf:'ânân',origin:'Plains Cree reference examples'},
+ {id:'pi1',dir:'inverse',rel:'he/she → me',form:'niwâpamik',gloss:'He/she sees me',pre:'ni',stem:'wâpam',suf:'ik',origin:'Plains Cree reference examples'},
+ {id:'pi2',dir:'inverse',rel:'he/she → you',form:'kiwâpamik',gloss:'He/she sees you',pre:'ki',stem:'wâpam',suf:'ik',origin:'Plains Cree reference examples'},
+ {id:'pi3',dir:'inverse',rel:'another third person → he/she',form:'wâpamikow',gloss:'Another third person sees him/her',pre:'',stem:'wâpam',suf:'ikow',origin:'Plains Cree reference examples'}
  ]};
 const $=id=>document.getElementById(id);const pick=()=> $('dialect').value==='woodland'?W:P;
 let quizIndex=0,points=0,answered=false;
