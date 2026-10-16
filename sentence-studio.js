@@ -5,6 +5,8 @@
  const models=window.CREE_BUILDER_DATA||{};
  const forms=[...Object.entries(models).flatMap(([dialect,arr])=>(arr||[]).filter(x=>x[6]).map(x=>({dialect,word:x[6],meaning:x[7]||'',grammar:x[0]||'',source:x[8]||''}))),...(window.CREE_CONJUGATION_RECORDS||[]).filter(r=>r.output).map(r=>({dialect:r.dialect,word:r.output,meaning:r.gloss||'',grammar:r.gramClass||'',source:r.source||'',person:r.person||''}))];
  const conjugations=(window.CREE_CONJUGATION_RECORDS||[]).filter(r=>r.output);
+ const attested=window.CREE_VERIFIED_SENTENCES||[];
+ const canonical=x=>String(x||'').normalize('NFC').toLowerCase().replace(/[?!.,;:]+$/g,'').replace(/\s+/g,' ').trim();
  const tokens=[];let results=[];
  const norm=x=>String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const dialectOK=(d,selected)=>{if(selected==='all')return true;const val=norm(d);return !val||val.includes('shared')||val.includes('both')||(selected==='woodland'&&(val.includes('wood')||val.includes('th')||val.includes('la ronge')))||(selected==='plains'&&(val.includes('plain')||val.includes(' y ')));};
@@ -42,6 +44,11 @@
    if(verb&&!isInflected)line(`    This verb is a dictionary headword. Its subject/object agreement and verb order have not been established by this entry.`);
    if(classes.length>1)line(`    Multiple grammatical analyses are possible. The surrounding words may disambiguate them.`);
   });
+  line('Sentence pattern review',true);
+  const sentence=canonical(tokens.map(t=>t.word).join(' '));
+  const verified=attested.filter(e=>canonical(e.text)===sentence && (selectedDialect==='all'||e.dialect===selectedDialect));
+  if(verified.length){verified.forEach(e=>line('Source-attested '+e.type+': '+e.translation+' — '+e.source+' '+e.explanation));}
+  else line('This whole sequence does not match a documented sentence in the current example set. That does not establish that it is wrong.');
   line('Sentence overview',true);
   line(`${found}/${tokens.length} words matched stored vocabulary or forms; ${inflected} matched recorded conjugations; ${verbCount} matched verb entries; ${unmatched} unmatched.`);
   if(!verbCount)line('No recorded verb class was identified in the selected words. This is not proof that the sentence is incorrect; Cree utterances need not always contain an overt verb.');
@@ -50,6 +57,15 @@
   if(ambiguous)line('At least one form has more than one possible grammatical classification; the checker cannot resolve it from word order alone.');
   line('This is a vocabulary and morphology review, not a syntactic grammaticality judgment. It cannot verify Cree word order, obviation, argument agreement, or meaning in context.');
  }
+ const examplesMenu=$('sentenceAttestedExample');
+ examplesMenu.replaceChildren(new Option('Choose an example',''),...attested.map((e,i)=>new Option(e.text+' — '+e.translation,String(i))));
+ $('sentenceLoadExample').addEventListener('click',()=>{
+  const idx=examplesMenu.value;if(idx==='')return;
+  const item=attested[Number(idx)]; if(!item)return;
+  tokens.length=0;
+  item.text.split(/\s+/).forEach(word=>tokens.push({word,meaning:'Source-attested example',dialect:item.dialect}));
+  $('sentenceDialect').value=item.dialect;search();updateForms();draw();checkSentence();
+ });
  $('sentenceCheck').addEventListener('click',checkSentence);
  $('sentenceSearch').addEventListener('input',search);$('sentenceGrammar').addEventListener('change',search);$('sentenceDialect').addEventListener('change',()=>{search();updateForms()});$('sentenceResults').addEventListener('dblclick',()=>add(results[Number($('sentenceResults').value)]));$('sentenceAdd').addEventListener('click',()=>add(results[Number($('sentenceResults').value)]));$('sentenceAddVerb').addEventListener('click',()=>add(($('sentenceRecorded')._records||[])[Number($('sentenceRecorded').value)]));
  $('sentenceUndo').addEventListener('click',()=>{tokens.pop();draw()});$('sentenceClear').addEventListener('click',()=>{tokens.length=0;draw();$('sentenceStatus').textContent=''});
