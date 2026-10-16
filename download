@@ -1,5 +1,4 @@
-.git
-__pycache__
+__pycache__/
 *.pyc
-*.zip
-README.md
+.git/
+.env

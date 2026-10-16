@@ -1,11 +1,10 @@
 services:
   - type: web
-    name: cree-plains-giellalt
+    name: cree-giellalt-generator
     runtime: docker
-    plan: free
     healthCheckPath: /health
     envVars:
       - key: CREE_SITE_ORIGIN
         value: https://shirinaevans-png.github.io
       - key: CRK_GENERATOR
-        value: /app/model/generator-gt-norm.hfstol
+        value: /app/model/crk-strict-generator.hfstol
