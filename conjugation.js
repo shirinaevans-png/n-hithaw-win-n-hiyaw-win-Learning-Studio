@@ -12,7 +12,8 @@ function scan(){let keep=cl.value;let classes=unique([...vocab.map(cls),...recor
 function populate(){let klass=cl.value,q=norm(search.value.trim());let rec=records.filter(r=>r.dialect===dialect.value && cls({grammar:r.gramClass})===klass);
 let groups=new Map();rec.forEach(r=>{let key=r.stem;let group=groups.get(key)||[];group.push(r);groups.set(key,group)});
 let opts=[...groups].map(([key,group])=>({key:'r:'+key,label:`${key} · ${group.length} recorded forms`,kind:'record',records:group,term:key+' '+group.map(x=>x.gloss).join(' ')}));
-const v=vocab.filter(x=>cls(x)===klass).map(x=>({key:'d:'+x.id,label:`${x.cre} — ${x.en} · dictionary`,kind:'dictionary',entry:x,term:x.cre+' '+x.en+' '+x.grammar+' '+x.category}));
+const matchesDialect=x=>{const d=norm(x.dialect||'');return d.includes(dialect.value)||d.includes('shared')||d.includes('both')||(dialect.value==='woodland'&&d.includes('th'))||(dialect.value==='plains'&&d.includes(' y '));};
+const v=vocab.filter(x=>cls(x)===klass&&matchesDialect(x)).map(x=>({key:'d:'+x.id,label:`${x.cre} — ${x.en} · dictionary`,kind:'dictionary',entry:x,term:x.cre+' '+x.en+' '+x.grammar+' '+x.category}));
 opts.push(...v);
 choices=opts.filter(x=>!q||norm(x.term).includes(q));
 let old=stem.value;set(stem,choices.length?choices.map(x=>[x.key,x.label]):[['','No matching words']]);if(choices.some(x=>x.key===old))stem.value=old;

@@ -17,24 +17,38 @@
  function add(r){if(!r)return;tokens.push(r);draw();$('sentenceAnalysis').replaceChildren();$('sentenceStatus').textContent='Added '+r.word+'.';}
  function checkSentence(){
   const area=$('sentenceAnalysis');area.replaceChildren();
-  const para=(t)=>{const el=document.createElement('p');el.textContent=t;area.append(el)};
-  if(!tokens.length){para('Select words to examine their dictionary and recorded-form matches.');return}
+  const line=(text,heading=false)=>{const p=document.createElement('p');p.textContent=text;if(heading)p.style.fontWeight='650';area.append(p)};
+  if(!tokens.length){line('Choose words to inspect their dictionary entries and recorded inflections.');return}
   const selectedDialect=$('sentenceDialect').value;
-  const issues=[];
+  let found=0,unmatched=0,verbCount=0,inflected=0,ambiguous=0;
+  const dialects=new Set();
   tokens.forEach((t,i)=>{
-    const known=conjugations.filter(r=>norm(r.output)===norm(t.word));
-    const dict=vocabulary.filter(r=>norm(r.word)===norm(t.word));
-    const item=document.createElement('p');
-    const label=known.length?`Recorded ${known.map(r=>r.gramClass+' · '+r.person).join(' / ')}`:(dict.length?'Dictionary entry':'No matching stored form');
-    item.textContent=`${i+1}. ${t.word}: ${label}`;
-    area.append(item);
-    const all=[...known,...dict];
-    if(selectedDialect!=='all'&&all.length&&!all.some(r=>dialectOK(r.dialect,selectedDialect)))issues.push(`${t.word}: this spelling is not labeled for the selected dialect.`);
-    if(!known.length&&dict.some(r=>/^(VAI|VII|VTI|VTA)/i.test(r.grammar)))issues.push(`${t.word}: dictionary verb entry; grammatical person, order and agreement have not been checked.`);
-    if(!known.length&&!dict.length)issues.push(`${t.word}: not found in local dictionary or conjugation records.`);
+   const records=conjugations.filter(r=>norm(r.output)===norm(t.word));
+   const entries=vocabulary.filter(r=>norm(r.word)===norm(t.word));
+   const classes=[...new Set([...records.map(r=>r.gramClass),...entries.map(r=>r.grammar)].filter(Boolean))];
+   const verb=classes.some(c=>/^(VAI|VII|VTI|VTA)/i.test(c));
+   const isInflected=records.length>0;
+   const match=records.length||entries.length;
+   if(match)found++;else unmatched++;
+   if(verb)verbCount++;
+   if(isInflected)inflected++;
+   if(classes.length>1)ambiguous++;
+   const ds=[...records,...entries].map(r=>norm(r.dialect));
+   ds.forEach(d=>{if(d.includes('wood')||d.includes('th'))dialects.add('Woodland');if(d.includes('plain'))dialects.add('Plains')});
+   const selectedOK=selectedDialect==='all'||[...records,...entries].some(r=>dialectOK(r.dialect,selectedDialect));
+   let analysis=records.length?`Recorded inflected form (${records.map(r=>[r.gramClass,r.person].filter(Boolean).join(', ')).join(' / ')})`:entries.length?`Dictionary headword (${classes.join(' / ')||'class unlabelled'})`:'No match in the stored vocabulary';
+   line(`${i+1}. ${t.word}: ${analysis}.`);
+   if(!selectedOK&&match)line(`    Review dialect: no matching entry has the selected ${selectedDialect} label.`);
+   if(verb&&!isInflected)line(`    This verb is a dictionary headword. Its subject/object agreement and verb order have not been established by this entry.`);
+   if(classes.length>1)line(`    Multiple grammatical analyses are possible. The surrounding words may disambiguate them.`);
   });
-  if(issues.length){issues.forEach(v=>para('Check: '+v))}else para('All selected words have a local dictionary or recorded-form match.');
-  para('This checks individual spellings and recorded forms only. It cannot certify word order, syntax, transitivity, agreement across words, or the grammatical correctness of the full sentence.');
+  line('Sentence overview',true);
+  line(`${found}/${tokens.length} words matched stored vocabulary or forms; ${inflected} matched recorded conjugations; ${verbCount} matched verb entries; ${unmatched} unmatched.`);
+  if(!verbCount)line('No recorded verb class was identified in the selected words. This is not proof that the sentence is incorrect; Cree utterances need not always contain an overt verb.');
+  if(dialects.size>1)line('Both Plains and Woodland labels occur among possible matches. Check the intended dialect for each selected word.');
+  if(verbCount>1)line('Multiple verb entries occur. Check whether the intended clause structure requires one or more verbs.');
+  if(ambiguous)line('At least one form has more than one possible grammatical classification; the checker cannot resolve it from word order alone.');
+  line('This is a vocabulary and morphology review, not a syntactic grammaticality judgment. It cannot verify Cree word order, obviation, argument agreement, or meaning in context.');
  }
  $('sentenceCheck').addEventListener('click',checkSentence);
  $('sentenceSearch').addEventListener('input',search);$('sentenceGrammar').addEventListener('change',search);$('sentenceDialect').addEventListener('change',()=>{search();updateForms()});$('sentenceResults').addEventListener('dblclick',()=>add(results[Number($('sentenceResults').value)]));$('sentenceAdd').addEventListener('click',()=>add(results[Number($('sentenceResults').value)]));$('sentenceAddVerb').addEventListener('click',()=>add(($('sentenceRecorded')._records||[])[Number($('sentenceRecorded').value)]));
