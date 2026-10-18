@@ -25,7 +25,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.end_headers()
     def reply(self, status, payload):
-        self.headers(status)
+        self.send_response(status)
         self.wfile.write(json.dumps(payload, ensure_ascii=False).encode('utf-8'))
     def do_OPTIONS(self):
         self.headers(204)
