@@ -1,7 +1,110 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Animal Flashcards | Cree Learning Studio</title><style>
-:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#193e39;background:#f5f7f2}*{box-sizing:border-box}body{margin:0}header{background:#173d38;color:white;padding:22px 5vw}header a{color:#fff}main{max-width:1160px;margin:auto;padding:20px}h1{margin:7px 0}p{line-height:1.5}.controls{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}select,input,button{padding:11px;border:1px solid #a7c2af;border-radius:11px;font:inherit;background:white;color:#173d38}button{cursor:pointer}button:focus-visible,.flip:focus-visible{outline:3px solid #be8d3e;outline-offset:3px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px}.flip{border:0;padding:0;min-height:315px;background:transparent;perspective:1200px;text-align:center}.inner{position:relative;width:100%;height:315px;transition:transform .42s;transform-style:preserve-3d}.flip.flipped .inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;border:1px solid #c4d9cc;border-radius:18px;background:#fff;box-shadow:0 3px 10px #163a3216;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:13px}.back{transform:rotateY(180deg);background:#eff6ef}.art{width:100%;height:236px;display:grid;place-items:center}.art img{max-width:100%;max-height:100%;object-fit:contain}.placeholder{font-size:62px;color:#90a596}.hint{color:#58786d;font-size:.81rem;margin-top:8px}.word{font-size:clamp(1.3rem,2vw,1.8rem);font-weight:750;overflow-wrap:anywhere}.english{font-size:1.1rem;margin-top:12px}.small{font-size:.82rem;color:#517267;margin-top:12px}.meta{font-size:.8rem;color:#557368;max-width:220px} .audio{margin-top:12px}.note{padding:15px 18px;border:1px solid #d4e3d7;border-radius:12px;background:#fff;margin-top:25px}.note a{color:#155343} @media(prefers-reduced-motion:reduce){.inner{transition:none}}</style></head><body>
-<header><a href="index.html">← Learning Studio homepage</a><h1>Animal Flashcards</h1><div>nîhithawîwin (TH) · nêhiyawêwin (Y)</div></header><main><p>Tap an animal to flip the card and reveal its Cree word. Choose the dialect before practising. Only dictionary-supported forms are shown as confirmed; other entries remain labelled for verification.</p><div class="controls"><select id="dialect" aria-label="Dialect"><option value="plains_y">Plains Cree (Y)</option><option value="woodland_th">Woodland Cree (TH)</option></select><input id="filter" aria-label="Search animals" type="search" placeholder="Find an animal"><select id="show" aria-label="Card filter"><option value="all">All animals</option><option value="verified">Words available</option><option value="illustrated">Illustrated only</option></select><button id="shuffle">Shuffle</button><button id="reveal">Flip all</button></div><p id="count" aria-live="polite"></p><section id="cards" class="grid"></section><div class="note">Illustrations are being added in stages. Six cards have artwork; others show an illustration-pending symbol. Audio plays only when a speaker recording has been added with permission. Published dictionary entries and dialect labels should be reviewed with fluent speakers. <a href="https://itwewina.altlab.app/">ALTLab itwêwina</a> supports Plains Cree research.</div></main><script src="animals-data.js"></script><script>
-const all=window.CREE_ANIMALS||[];const $=s=>document.querySelector(s);let shuffled=[...all];let allRevealed=false;const escapeHTML=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function render(){const dialect=$('#dialect').value,filter=$('#filter').value.toLowerCase(),show=$('#show').value;let items=shuffled.filter(a=>(a.english+' '+(a.plains_y||'')+' '+(a.woodland_th||'')).toLowerCase().includes(filter)&&(show!=='verified'||a[dialect])&&(show!=='illustrated'||a.image));$('#count').textContent=items.length+' animal cards';$('#cards').innerHTML=items.map((a,i)=>{const word=a[dialect]||'Awaiting verification', status=a[dialect]?(a[dialect==='plains_y'?'status_y':'status_th']||'Check with speaker'):'Not yet verified';const aud=a[dialect==='plains_y'?'audio_y':'audio_th'];return `<div><button type="button" class="flip ${allRevealed?'flipped':''}" aria-label="Flip ${escapeHTML(a.english)} card" aria-pressed="${allRevealed}" data-i="${i}" style="width:100%"><span class="inner"><span class="face front"><span class="art">${a.image?`<img loading="lazy" src="${escapeHTML(a.image)}" alt="Cartoon ${escapeHTML(a.english)}">`:'<span class="placeholder" aria-hidden="true">✧</span>'}</span><span class="hint">Tap to reveal</span></span><span class="face back"><span class="word">${escapeHTML(word)}</span><span class="english">${escapeHTML(a.english)}</span><span class="small">${dialect==='plains_y'?'Plains Cree (Y)':'Woodland Cree (TH)'}</span><span class="meta">${escapeHTML(status)}</span><span class="hint">Tap to see animal</span></span></span></button>${aud?`<div class="audio"><audio controls preload="none" src="${escapeHTML(aud)}"></audio></div>`:''}${dialect==='plains_y'&&a.plains_source?`<p style="font-size:.8rem;text-align:center;margin:7px"><a href="${escapeHTML(a.plains_source)}" target="_blank" rel="noopener">Dictionary source ↗</a></p>`:''}</div>`}).join('');document.querySelectorAll('.flip').forEach(el=>el.addEventListener('click',()=>{el.classList.toggle('flipped');el.setAttribute('aria-pressed',el.classList.contains('flipped'))}));}
-['dialect','filter','show'].forEach(id=>$('#'+id).addEventListener(id==='filter'?'input':'change',()=>{allRevealed=false;render()}));$('#shuffle').addEventListener('click',()=>{for(let i=shuffled.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]]}render()});$('#reveal').addEventListener('click',()=>{allRevealed=!allRevealed;$('#reveal').textContent=allRevealed?'Show all animals':'Flip all';render()});render();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Animal Flashcards | Cree Learning Studio</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#193e39;background:#f5f7f2}
+*{box-sizing:border-box}
+body{margin:0}
+header{background:#173d38;color:white;padding:22px 5vw}
+header a{color:#fff}
+header h1{margin:8px 0 4px}
+main{max-width:1180px;margin:auto;padding:20px 18px 60px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 18px}
+select,input,button{padding:11px 13px;border:1px solid #a7c2af;border-radius:11px;font:inherit;color:#173d38;background:#fff}
+button{cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #bd8c3b;outline-offset:3px}
+#count{color:#5a7369;font-size:.9rem;margin:0 0 13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:15px}
+.animal{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:235px;background:#fff;border:1px solid #d1e0d3;border-radius:17px;box-shadow:0 3px 12px #163a3210;padding:13px 10px;transition:transform .15s,box-shadow .15s;text-align:center}
+.animal:hover{transform:translateY(-3px);box-shadow:0 8px 18px #163a3226}
+.picture{height:175px;width:100%;display:grid;place-items:center}
+.picture img{max-height:170px;max-width:100%;object-fit:contain}
+.placeholder{display:grid;place-items:center;background:#edf3ee;border-radius:14px;width:100%;height:150px;color:#8ca99c;font-size:45px}
+.name{font-weight:700;font-size:1rem;margin-top:10px;overflow-wrap:anywhere}
+dialog{border:0;border-radius:22px;box-shadow:0 20px 70px #0c292668;background:#fff;color:#173d38;width:min(440px,calc(100% - 26px));padding:26px 24px 22px;text-align:center}
+dialog::backdrop{background:#102c29a9}
+.close{position:absolute;right:12px;top:11px;border:0;background:#eef4ef;font-size:22px;width:41px;height:41px;padding:0}
+#modalArt{height:165px;display:grid;place-items:center}
+#modalArt img{height:155px;max-width:90%;object-fit:contain}
+#modalArt .placeholder{height:125px;width:155px;margin:auto}
+#modalEnglish{font-size:1.1rem;margin:8px 0}
+#modalWord{font-size:clamp(1.55rem,5vw,2.1rem);font-weight:750;margin:12px 0;overflow-wrap:anywhere}
+#modalInfo{font-size:.88rem;color:#597a6b;margin-top:10px}
+#modalAudio{margin:16px 0 0}
+#modalAudio audio{width:100%;max-width:290px}
+#source{display:inline-block;color:#21624e;font-size:.88rem;margin-top:14px}
+@media(max-width:500px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.animal{min-height:185px;padding:9px}.picture{height:128px}.picture img{max-height:126px}.placeholder{height:120px}.controls>*{flex-grow:1}}
+@media(prefers-reduced-motion:reduce){.animal{transition:none}}
+</style>
+</head>
+<body>
+<header><a href="index.html">← Learning Studio homepage</a><h1>Animal Flashcards</h1><div>nîhithawîwin (TH) · nêhiyawêwin (Y)</div></header>
+<main>
+<div class="controls">
+<select id="dialect" aria-label="Dialect"><option value="plains_y">Plains Cree (Y)</option><option value="woodland_th">Woodland Cree (TH)</option></select>
+<input type="search" id="filter" aria-label="Find an animal" placeholder="Find an animal">
+<select id="show" aria-label="Filter animals"><option value="all">All animals</option><option value="verified">Cree words available</option><option value="illustrated">Illustrated animals</option></select>
+<button id="shuffle" type="button">Shuffle</button>
+</div>
+<div id="count" aria-live="polite"></div>
+<section class="grid" id="cards" aria-label="Animal cards"></section>
+</main>
+<dialog id="wordDialog" aria-labelledby="modalEnglish">
+<button class="close" id="close" type="button" aria-label="Close">×</button>
+<div id="modalArt"></div>
+<div id="modalEnglish"></div>
+<div id="modalWord"></div>
+<div id="modalInfo"></div>
+<div id="modalAudio"></div>
+<a id="source" target="_blank" rel="noopener noreferrer" hidden>Dictionary source ↗</a>
+</dialog>
+<script src="animals-data.js"></script>
+<script>
+"use strict";
+const dataset=Array.isArray(window.CREE_ANIMALS)?window.CREE_ANIMALS:[];
+const $=s=>document.querySelector(s);
+let animals=[...dataset];
+let selectedAnimal=null;
+const escapeHTML=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function artwork(a){return a.image?`<img src="${escapeHTML(a.image)}" alt="${escapeHTML(a.english)}" loading="lazy">`:'<span class="placeholder" aria-hidden="true">✧</span>'}
+function currentDialect(){return $("#dialect").value}
+function render(){
+ const d=currentDialect(), query=$("#filter").value.trim().toLowerCase(), mode=$("#show").value;
+ const visible=animals.filter(a=>(a.english+" "+(a[d]||"")).toLowerCase().includes(query)&&(mode!=="verified"||Boolean(a[d]))&&(mode!=="illustrated"||Boolean(a.image)));
+ $("#count").textContent=`${visible.length} animal${visible.length===1?"":"s"}`;
+ const grid=$("#cards");grid.replaceChildren();
+ for (const a of visible){
+   const b=document.createElement("button");b.type="button";b.className="animal";
+   b.setAttribute("aria-label",a.english);
+   b.innerHTML=`<span class="picture">${artwork(a)}</span><span class="name">${escapeHTML(a.english)}</span>`;
+   b.addEventListener("click",()=>openAnimal(a));
+   grid.appendChild(b);
+ }
+}
+function openAnimal(a){
+ selectedAnimal=a;updateDialog(a);$("#wordDialog").showModal();
+}
+function updateDialog(a){
+ const d=currentDialect();
+ $("#modalArt").innerHTML=artwork(a);
+ $("#modalEnglish").textContent=a.english;
+ $("#modalWord").textContent=a[d]||"Word not yet verified";
+ $("#modalInfo").textContent=(d==="plains_y"?"Plains Cree (Y)":"Woodland Cree (TH)")+(a[d]?" · "+(a[d==="plains_y"?"status_y":"status_th"]||"Review pending"):"");
+ const audio=a[d==="plains_y"?"audio_y":"audio_th"];
+ const sound=$("#modalAudio");sound.replaceChildren();
+ if(audio){const player=document.createElement("audio");player.controls=true;player.preload="none";player.src=audio;sound.appendChild(player)}
+ const source=$("#source");const link=d==="plains_y"?a.plains_source:"";
+ source.hidden=!link;if(link)source.href=link;else source.removeAttribute("href");
+}
+$("#close").addEventListener("click",()=>$("#wordDialog").close());
+$("#wordDialog").addEventListener("click",e=>{if(e.target===$("#wordDialog"))$("#wordDialog").close()});
+$("#dialect").addEventListener("change",()=>{render();if(selectedAnimal&&$("#wordDialog").open)updateDialog(selectedAnimal)});
+$("#filter").addEventListener("input",render);
+$("#show").addEventListener("change",render);
+$("#shuffle").addEventListener("click",()=>{for(let i=animals.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[animals[i],animals[j]]=[animals[j],animals[i]]}render()});
+render();
+</script>
+</body></html>
