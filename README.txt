@@ -1,1 +1,5 @@
-Upload the extracted files and the entire animal-art folder to the GitHub repository root. This replaces animals.html and adds animals-data.js plus artwork. index.html includes the Animal Flashcards link; do not replace a newer homepage without first comparing edits. Each dialect only displays entries having a sourced word. TH records are not yet present. Artwork beyond the six earlier illustrations is newly drawn simplified vector artwork and may be replaced later. No audio is included.
+FIXED: the previous blank card was caused by a JavaScript syntax error. The new animals.html includes all animal vocabulary data directly; images are in animal-art/.
+
+UPLOAD: Extract this ZIP. In your GitHub repository root, upload animals.html AND the entire animal-art/ folder; retain the folder name exactly. The included index.html has the Animal Flashcards link, but ONLY replace your GitHub index.html if you have not made newer edits to it. Do not upload the ZIP itself. No further JavaScript file is necessary.
+
+Only sourced dialect forms display. Woodland (TH) has no approved records in this version. Some extra drawings are simplified SVG illustrations rather than finished kawaii character pictures.
