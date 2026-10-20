@@ -1,1 +1,1 @@
-Upload ONLY index.html to the root of your GitHub Pages repository, replacing the existing homepage. This removes the duplicate syllabics tile, embeds seven charts within the existing Syllabics tab and avoids PDF links. No chart folders required. Keep your other GitHub files unchanged.
+Upload index.html into the root of your Cree Learning Studio GitHub repository, replacing the existing index.html. The original interactive Woods Cree table is now visible below the seven chart selector. Other project files are unchanged.
