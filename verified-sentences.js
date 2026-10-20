@@ -1,14 +1,43 @@
-/* Attested examples transcribed from Athanasopoulou, Goddard & Flynn (2025).
-   These records are exact examples, not a general grammar validator. */
-window.CREE_VERIFIED_SENTENCES = [
- {text:'kinisitohtawin cî',dialect:'plains',type:'interrogative clause',translation:'Do you understand me?',source:'Athanasopoulou, Goddard & Flynn (2025), p 95, ex (2a)',explanation:'A documented question with cî.'},
- {text:'mîna iskwêw',dialect:'plains',type:'phrase',translation:'and a woman',source:'Athanasopoulou, Goddard & Flynn (2025), p 95, ex (2b)',explanation:'Documented phrase; not a complete sentence.'},
- {text:'ê-itwêyit',dialect:'plains',type:'inflected verb clause',translation:'She/he (obviative) said',source:'Athanasopoulou, Goddard & Flynn (2025), p 95, ex (2c)',explanation:'An attested inflected predicate.'},
- {text:'iskwêw ana',dialect:'plains',type:'noun phrase',translation:'that woman',source:'Athanasopoulou, Goddard & Flynn (2025), p 96, ex (4a)',explanation:'Demonstrative noun phrase, not an independent complete clause.'},
- {text:'awa mistik',dialect:'plains',type:'noun phrase',translation:'this tree',source:'Athanasopoulou, Goddard & Flynn (2025), p 96, ex (4b)',explanation:'Demonstrative noun phrase, not an independent complete clause.'},
- {text:'iyinico-aspapiwinisa ohci',dialect:'plains',type:'phrase',translation:'with a saddle',source:'Athanasopoulou, Goddard & Flynn (2025), p 96, ex (4c)',explanation:'Attested phrase, not a complete clause.'},
- {text:'mâyâtisiw',dialect:'plains',type:'inflected verb clause',translation:'She is ugly',source:'Athanasopoulou, Goddard & Flynn (2025), p 97, ex (6a)',explanation:'Attested independent verb form.'},
- {text:'apwêsiyiwa',dialect:'plains',type:'inflected verb clause',translation:'She/he (the other) sweats',source:'Athanasopoulou, Goddard & Flynn (2025), p 97, ex (6b)',explanation:'Attested obviative verb form.'},
- {text:'nâpêwak',dialect:'plains',type:'noun phrase',translation:'men',source:'Athanasopoulou, Goddard & Flynn (2025), p 98, ex (7b)',explanation:'Attested noun form; not a complete sentence.'},
- {text:'kinosêwak',dialect:'plains',type:'noun phrase',translation:'fish (plural)',source:'Athanasopoulou, Goddard & Flynn (2025), p 98, ex (7c)',explanation:'Attested plural noun form; not a complete sentence.'}
-];
+/* Sentence Studio expanded practice library.
+   The first ten examples are transcribed from the site's existing cited collection.
+   Additional entries are drawn only from the site's stored, source-labelled
+   conjugation records. A recorded form is NOT automatically an attested
+   multiword sentence or a test of sentence-level grammaticality.
+   Woodland (TH) and Plains (Y) are kept distinct.
+*/
+(function () {
+  'use strict';
+  const base = [
+    ['kinisitohtawin cî','plains','interrogative clause','Do you understand me?','Athanasopoulou, Goddard & Flynn (2025), p 95, ex (2a)','A documented question with cî.'],
+    ['mîna iskwêw','plains','phrase','and a woman','Athanasopoulou, Goddard & Flynn (2025), p 95, ex (2b)','Documented phrase; not a complete sentence.'],
+    ['ê-itwêyit','plains','inflected verb clause','She/he (obviative) said','Athanasopoulou, Goddard & Flynn (2025), p 95, ex (2c)','An attested inflected predicate.'],
+    ['iskwêw ana','plains','noun phrase','that woman','Athanasopoulou, Goddard & Flynn (2025), p 96, ex (4a)','Demonstrative noun phrase, not an independent complete clause.'],
+    ['awa mistik','plains','noun phrase','this tree','Athanasopoulou, Goddard & Flynn (2025), p 96, ex (4b)','Demonstrative noun phrase, not an independent complete clause.'],
+    ['iyinico-aspapiwinisa ohci','plains','phrase','with a saddle','Athanasopoulou, Goddard & Flynn (2025), p 96, ex (4c)','Attested phrase, not a complete clause.'],
+    ['mâyâtisiw','plains','inflected verb clause','She is ugly','Athanasopoulou, Goddard & Flynn (2025), p 97, ex (6a)','Attested independent verb form.'],
+    ['apwêsiyiwa','plains','inflected verb clause','She/he (the other) sweats','Athanasopoulou, Goddard & Flynn (2025), p 97, ex (6b)','Attested obviative verb form.'],
+    ['nâpêwak','plains','noun phrase','men','Athanasopoulou, Goddard & Flynn (2025), p 98, ex (7b)','Attested noun form; not a complete sentence.'],
+    ['kinosêwak','plains','noun phrase','fish (plural)','Athanasopoulou, Goddard & Flynn (2025), p 98, ex (7c)','Attested plural noun form; not a complete sentence.']
+  ];
+  const library = base.map(([text,dialect,type,translation,source,explanation]) => ({text,dialect,type,translation,source,explanation}));
+  const seen = new Set(library.map(e => e.dialect + '|' + e.text.toLowerCase()));
+  const recorded = Array.isArray(window.CREE_CONJUGATION_RECORDS) ? window.CREE_CONJUGATION_RECORDS : [];
+  recorded.forEach(r => {
+    const dialect = String(r.dialect || '').toLowerCase();
+    const text = String(r.output || '').trim();
+    if (!['plains','woodland'].includes(dialect) || !text || !r.source || !r.gloss) return;
+    const key = dialect + '|' + text.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    const isVerb = /^V(AI|II|TI|TA)/i.test(String(r.gramClass || ''));
+    library.push({
+      text,
+      dialect,
+      type: (isVerb ? 'recorded inflected-verb practice' : 'recorded word-form practice'),
+      translation: String(r.gloss),
+      source: String(r.source),
+      explanation: 'Recorded ' + String(r.gramClass || 'form') + (r.person ? ' (' + r.person + ')' : '') + '. This is practice with a cited form; it does not demonstrate that arbitrary combinations form grammatical sentences.'
+    });
+  });
+  window.CREE_VERIFIED_SENTENCES = library;
+})();
