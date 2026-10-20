@@ -1,9 +1,6 @@
-EVERYDAY CREE WEBSITE UPDATE
+EVERYDAY CREE | WEBSITE UPLOAD
 
-Upload BOTH files to the ROOT of your GitHub Pages repository:
-- index.html (existing learning studio with one new navigation link)
-- everyday-cree.html (new six-bundle learning resource)
+Upload index.html and everyday-cree.html to the ROOT of your existing GitHub Pages repository.
+Do not delete other website files. The index.html in this ZIP is your supplied homepage, preserved unchanged.
 
-All existing site files should remain in place. Do not delete your other pages.
-
-All Cree-English sentence pairs and vocabulary reflect Everyday_Cree_Six_Bundles_Source_Grounded.docx; this is a source-grounded teaching draft, not a fully translated 6-bundle curriculum.
+Updates: removed internal notes and editorial statements from the lesson pages; replaced source notes with References & Resources and repaired citation links.
