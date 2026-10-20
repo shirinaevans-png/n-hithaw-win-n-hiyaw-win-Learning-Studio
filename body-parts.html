@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Body Parts | Cree Learning Studio</title>
+<link rel="stylesheet" href="body-parts.css">
+<script src="body-parts.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#lesson">Skip to lesson</a>
+<header class="topbar"><a class="home" href="index.html">← Learning Studio home</a><span>Vocabulary • Interactive lesson</span></header>
+<main id="lesson" class="wrap">
+<div class="hero"><p class="eyebrow">CREE LEARNING STUDIO</p><h1>The Body <em>in Cree</em></h1><p>Explore the illustration, select a body part, and practise matching Cree words with their English meanings.</p></div>
+<div class="tabs" role="tablist" aria-label="Lesson modes"><button type="button" id="exploreTab" class="tab active" role="tab" aria-selected="true" aria-controls="explorePanel">Explore</button><button type="button" id="practiceTab" class="tab" role="tab" aria-selected="false" aria-controls="practicePanel">Practice quiz</button></div>
+<section id="explorePanel" role="tabpanel" aria-labelledby="exploreTab">
+ <div class="explore">
+  <div class="figure-card"><div class="poster-wrap"><img src="assets/body-parts-poster.png" width="1122" height="1402" alt="Illustrated girl with glasses and a high messy bun, with English and Cree body-part labels. Select any body part from the numbered interactive markers or the vocabulary list." loading="eager">
+   <div id="hotspots" class="hotspots" aria-label="Body part markers"></div>
+   </div><p class="figure-help">Select a numbered marker on the picture or choose a word from the list.</p></div>
+  <div class="learning-card"><span class="section-kicker">SELECT A BODY PART</span><div id="selection" class="selected" aria-live="polite"></div><div class="list-header"><h2>Vocabulary</h2><span id="vocabCount"></span></div><div id="vocabulary" class="vocabulary"></div></div>
+ </div>
+</section>
+<section id="practicePanel" role="tabpanel" aria-labelledby="practiceTab" hidden><div class="quiz-card"><div class="quiz-row"><span class="section-kicker">PRACTICE</span><span id="progress"></span></div><h2 id="question"></h2><p id="questionHint" class="hint"></p><div id="answers" class="answers"></div><p id="feedback" class="feedback" aria-live="polite"></p><div class="quiz-actions"><button type="button" id="nextBtn" class="main-btn" disabled>Next question →</button><button type="button" id="restartBtn" class="ghost-btn">Restart quiz</button></div></div></section>
+<p class="source-note"><strong>Language note:</strong> Words here are transcribed from the supplied “The Body in Cree” reference illustration. Their spellings and dialect-specific forms have not been independently verified for Lac La Ronge Woodland Cree (TH). No syllabics or automatic pronunciation is supplied pending verification.</p>
+<footer>Created and curated by Shirina Evans · Cree Learning Studio</footer>
+</main>
+</body></html>
