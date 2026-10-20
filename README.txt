@@ -1,7 +1,1 @@
-ANIMAL FLASHCARD STUDIO
-
-Upload animals.html and animals-data.js to the repository root, and upload the assets/ folder with its six images. Open animals.html or link it on your homepage using <a href="animals.html">Animal Flashcards</a>.
-
-The 68-card vocabulary list includes 8 attested Plains Cree words and unfilled TH fields for verification. It does NOT claim to supply complete verified animal translations or illustrations for all cards. Audio is not bundled. Add licensed or speaker-approved audio files and filenames to animals-data.js.
-
-DO NOT replace index.html; add one navigation link to your existing index to avoid overwriting changes.
+Upload the CONTENTS of this extracted folder to the root of your GitHub Pages repository. Replace index.html and add animals.html, animals-data.js, assets/*.png. Do not remove the existing site files. The new homepage includes Animal Flashcards in its navigation. The animal card FRONT displays the illustration; tap to reveal the Cree word on the BACK. Only six animals have finished illustrations; unillustrated animals show a placeholder. Woodland Cree forms and remaining translations require verification. This package uses the prior homepage snapshot from this conversation and may overwrite newer changes, so compare with your newest index.html before replacing.
