@@ -1,1 +1,1 @@
-Upload references.html to the root of the GitHub repository, replacing the existing file. Do not replace index.html or any other page. This version preserves the existing listed citations and adds Syllabics.net and a link to the syllabics charts.
+Upload ONLY index.html to the root of your GitHub Pages repository, replacing the existing homepage. This removes the duplicate syllabics tile, embeds seven charts within the existing Syllabics tab and avoids PDF links. No chart folders required. Keep your other GitHub files unchanged.
