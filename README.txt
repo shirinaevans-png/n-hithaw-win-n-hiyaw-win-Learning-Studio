@@ -1,5 +1,1 @@
-Upload animals.html and index.html to the ROOT of the GitHub Pages repository, replacing existing files.
-No assets folder is needed. All 4 existing animal drawings are embedded directly in animals.html.
-Only Plains Cree words with direct dictionary evidence are published. Woodland Cree items await source verification.
-WARNING: index.html is based on the prior generated homepage; back up any newer homepage edits before replacing it.
-Some verified animals lack drawings because their illustrations have not yet been created.
+Upload index.html, animals.html and (optional) animal-dialect-sources.csv to the root of your GitHub Pages repository. The six original kawaii images are embedded in animals.html, so image folders are not required. One card is displayed at a time. Clicking it reveals the Cree word. Previous, Next and Mark practised work as on the original vocabulary cards. Only entries with attested dialect-specific Cree words appear. The Woodland TH section requires verification against the actual Lac La Ronge / Solomon Ratt source texts; no guesses were inserted. Remaining animals without illustrations show their English name, not a broken image.
