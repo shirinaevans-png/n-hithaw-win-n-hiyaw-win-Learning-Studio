@@ -1,1 +1,5 @@
-Upload the CONTENTS of this extracted folder to the root of your GitHub Pages repository. Replace index.html and add animals.html, animals-data.js, assets/*.png. Do not remove the existing site files. The new homepage includes Animal Flashcards in its navigation. The animal card FRONT displays the illustration; tap to reveal the Cree word on the BACK. Only six animals have finished illustrations; unillustrated animals show a placeholder. Woodland Cree forms and remaining translations require verification. This package uses the prior homepage snapshot from this conversation and may overwrite newer changes, so compare with your newest index.html before replacing.
+Upload animals.html and index.html to the ROOT of the GitHub Pages repository, replacing existing files.
+No assets folder is needed. All 4 existing animal drawings are embedded directly in animals.html.
+Only Plains Cree words with direct dictionary evidence are published. Woodland Cree items await source verification.
+WARNING: index.html is based on the prior generated homepage; back up any newer homepage edits before replacing it.
+Some verified animals lack drawings because their illustrations have not yet been created.
