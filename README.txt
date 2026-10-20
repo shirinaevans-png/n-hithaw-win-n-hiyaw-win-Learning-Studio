@@ -1,7 +1,7 @@
-Cree Learning Studio calendar grid update
+ANIMAL FLASHCARD STUDIO
 
-Upload BOTH index.html and calendar.html to the ROOT of your GitHub repository using Add file > Upload files.
-index.html is based on the previously generated homepage; if you have modified your homepage since then, replacing it could overwrite newer changes. In that case, upload calendar.html only and add a link to it separately.
-The calendar handles years 0000–2040, month navigation, and date selection. It does not include animal art.
+Upload animals.html and animals-data.js to the repository root, and upload the assets/ folder with its six images. Open animals.html or link it on your homepage using <a href="animals.html">Animal Flashcards</a>.
 
-Cree language caveat: TH words remain pending verification; Plains forms are retained from the earlier educational calendar and should be checked against original sources.
+The 68-card vocabulary list includes 8 attested Plains Cree words and unfilled TH fields for verification. It does NOT claim to supply complete verified animal translations or illustrations for all cards. Audio is not bundled. Add licensed or speaker-approved audio files and filenames to animals-data.js.
+
+DO NOT replace index.html; add one navigation link to your existing index to avoid overwriting changes.
