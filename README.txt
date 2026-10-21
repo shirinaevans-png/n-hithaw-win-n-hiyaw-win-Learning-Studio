@@ -1,15 +1,7 @@
-BODY PARTS NUMBER MATCHING GAME
+FIX FOR HOW CREE WORDS WORK — INTERACTIVE LESSON
 
-Upload the SIX files in this ZIP into the ROOT of your existing GitHub Pages repository, replacing files with matching names:
+Upload BOTH how-cree-words-work.html and index.html to the root of the GitHub Pages repository. Replace index.html only after checking whether your current homepage has newer edits; this version comes from the last available locally built expanded homepage.
 
-index.html
-body-parts.html
-body-parts.css
-body-parts.js
-body-parts-girl.png
+The lesson is a standalone working HTML file without external dependencies. It uses Chelsea Vowel (2011) source examples, explicitly Plains Cree Y dialect.
 
-Do not delete other files.
-
-The title is Body Parts. Learners choose from shuffled Cree words and click numbered hotspots. Incorrect guesses never reveal the correct answer. The English list is in an optional Study word list section (closed by default).
-
-Vocabulary is transcribed from the supplied reference poster; confirm dialect-specific orthography before treating these as authoritative Lac La Ronge Woodland Cree forms.
+If your homepage already contains a tile called How Cree Words Work, you can upload only how-cree-words-work.html and change that tile href to how-cree-words-work.html in the current index.html, avoiding any risk of overwriting homepage changes.
