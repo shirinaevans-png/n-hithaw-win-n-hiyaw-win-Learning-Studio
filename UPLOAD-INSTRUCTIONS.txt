@@ -1,0 +1,11 @@
+The requested porcupine sentence and the related note are absent from the uploaded HTML and JavaScript data.
+
+Upload/re-upload these FIVE files in the ROOT (same level as your current index.html) of your GitHub repository, replacing existing files of the same names:
+- index.html
+- how-woodland-cree-words-work.html
+- word-parts-data.js
+- animate-inanimate-cree.html
+- animacy-data.js
+
+Then commit. Wait for GitHub Pages to redeploy. Hard-refresh (Ctrl+Shift+R).
+If the old text persists, check the GitHub Pages deployed branch/folder and make sure the right copy of how-woodland-cree-words-work.html is there.
