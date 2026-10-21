@@ -1,11 +1,15 @@
-CREE PLACE NAMES — GITHUB PAGES
+BODY PARTS · INTERACTIVE TOOL
 
-Upload cree-place-names.html to your repository root. It works as a standalone page and links back to index.html.
+Upload these files to the ROOT of your GitHub Pages repository:
+- index.html
+- body-parts.html
+- body-parts.css
+- body-parts.js
 
-To add a homepage link WITHOUT replacing your current homepage, add the following anchor inside your existing navigation near the other learning tools:
-
-<a href="cree-place-names.html">Saskatchewan Cree Place Names</a>
-
-The included CSV is a research companion and need not be uploaded.
-
-Source text and spelling are retained as printed. Individual dialect attribution is not asserted.
+This version:
+- titles the page Body Parts
+- uses a cartoon-style illustration with a high bun, big glasses, and oversized scrunchie
+- does NOT show text labels on the picture
+- lets students choose a Cree word and click the correct body part
+- does NOT reveal the correct answer after a wrong guess
+- includes a separate Study word list tab
