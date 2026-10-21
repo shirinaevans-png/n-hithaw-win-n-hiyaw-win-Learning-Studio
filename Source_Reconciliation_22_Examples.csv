@@ -1,0 +1,23 @@
+﻿dialect,word,meaning,reference_class,inventory_class,status,reference,inventory_sources
+TH,atim,dog,animate,animate,AGREES,"Ratt, Woods Cree Stories, glossary, p. 100","Ratt, Beginning Woods Cree (2026), printed p. 338"
+TH,awāsis,child,animate,,NOT FOUND: separate reference entry,"Ratt, glossary, p. 100",
+TH,athisitiniw,person,animate,,NOT FOUND: separate reference entry,"Ratt, glossary, p. 99",
+TH,āpakosīs,mouse,animate,,NOT FOUND: separate reference entry,"Ratt, glossary, p. 101",
+TH,ayahci-pisiskiw,strange animal,animate,,NOT FOUND: separate reference entry,"Ratt, glossary, p. 100",
+TH,askiy,land,inanimate,inanimate,AGREES,"Ratt, glossary, p. 99","Ratt, Beginning Woods Cree (2026), printed p. 338"
+TH,atāwikamikw,store,inanimate,,NOT FOUND: separate reference entry,"Ratt, glossary, p. 99",
+TH,āpacihcikan,tool,inanimate,,NOT FOUND: separate reference entry,"Ratt, glossary, p. 101",
+TH,cīkahikanis,small axe,inanimate,,NOT FOUND: separate reference entry,"Ratt, glossary, p. 101",
+TH,cīmānis,small canoe,inanimate,,NOT FOUND: separate reference entry,"Ratt, glossary, p. 101",
+TH,ispatinaw,hill,inanimate,inanimate,AGREES,"Ratt, glossary, p. 102","Ratt, Beginning Woods Cree (2026), printed p. 340"
+Y,iskwēw,woman,animate,animate,AGREES,"Dahlstrom, Plains Cree Morphosyntax, ch. 2, §1.1","Plains Cree Starter Database, Nouns (source ID SRC1)"
+Y,sīsīp,duck,animate,,NOT FOUND: separate reference entry,"Dahlstrom, ch. 2, §1.1",
+Y,mītos,tree,animate,,NOT FOUND: separate reference entry,"Dahlstrom, ch. 2, §1.1",
+Y,sēhkēpayīs,car,animate,animate,AGREES,"Dahlstrom, ch. 2, §1.1","Plains Cree Starter Database, Nouns (source ID SRC1)"
+Y,ospwākan,pipe,animate,animate,AGREES,"Dahlstrom, ch. 2, §1.1","Plains Cree Starter Database, Nouns (source ID SRC1)"
+Y,asiniy,rock,animate,animate,AGREES,"Dahlstrom, ch. 2, §2.1","BC p. 287; Okimāsis, Cree: Language of the Plains (2018), printed p. 307"
+Y,mōhkomān,knife,inanimate,inanimate,AGREES,"Dahlstrom, ch. 2, §1.1","Plains Cree Starter Database, Nouns (source ID SRC1)"
+Y,misit,foot,inanimate,inanimate,AGREES,"Dahlstrom, ch. 2, §1.1","BC p. 292; LKSC p. 305; Ratt, Let’s Keep Speaking Cree (2022), printed p. 305; Okimāsis, Cree: Language of the Plains (2018), printed p. 314"
+Y,nīpiy,leaf,inanimate,,NOT FOUND: separate reference entry,"Dahlstrom, ch. 2, §1.1 (not nipiy “water”)",
+Y,maskisin,shoe,inanimate,inanimate,AGREES,"Dahlstrom, ch. 2, §§1.3, 2.1","BC p. 292; LKSC p. 304; Ratt, Let’s Keep Speaking Cree (2022), printed p. 304"
+Y,mīnis,berry,inanimate,,NOT FOUND: separate reference entry,"Dahlstrom, ch. 2, §1.1",

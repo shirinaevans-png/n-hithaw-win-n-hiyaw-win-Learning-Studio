@@ -1,7 +1,7 @@
-EXPANDED CREE ANIMACY INVENTORY
+Cree Animacy: expanded interactive lessons and noun inventory
 
-The supplied data.js was parsed: 5,819 vocabulary entries. The included noun inventory extracts every entry with explicit NA, NI, NDA, or NDI grammar tags, preserves citation and original grammatical tag, and marks conflicting noun classes for review. The full CSV includes all extracted records and a small number of separate Plains Cree starter spreadsheet entries. This is exhaustive for tagged nouns in the provided database, NOT exhaustive of all Cree nouns or untagged words.
+Includes the complete 1,568-record tagged noun inventory from the supplied database and supplemental spreadsheet, source fields and explicit review statuses. The quiz now draws from the full inventory for the selected dialect and allows 10, 20, 50, or all questions, topic selection, reshuffle, answer feedback and citations. A second tool matches noun animacy to VAI/VII or VTA/VTI without inventing verb forms.
 
-For GitHub: replace index.html and animate-inanimate-cree.html; add animacy-full-data.js. The homepage has two separate animate/inanimate links. Keep all existing website files. animacy-data.js and the word-parts files are included for continuity. Source attributions were not guessed from spellings; uncategorized BC/LKSC material is identified as Plains Cree on the basis of the separately provided Ratt Cree categorized workbook.
+Source_Reconciliation_22_Examples.csv records the exact-word comparison of the 22 source-annotated noun examples in the earlier interactive reference list with database records. It is a focused cross-check, NOT a completed one-by-one review of every noun in every previously supplied research PDF. An absent exact match does not mean disagreement because dialect spellings and normalization differ.
 
-The interactive page shows up to 500 matching entries per column to keep browsing responsive. Search to narrow; the CSV contains all records. Quiz retains its original 22 selected teaching examples.
+Upload the included index.html, animate-inanimate-cree.html, animacy-data.js, animacy-full-data.js, word-parts-data.js, and how-woodland-cree-words-work.html to the ROOT of the current GitHub repository. Do not delete existing website assets. Index retains the two colour-coded links.
