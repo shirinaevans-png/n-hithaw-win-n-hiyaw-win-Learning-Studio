@@ -1,11 +1,13 @@
-CREE LEARNING STUDIO - FIXED THREE-DIALECT HOMEPAGE
+Cree Learning Studio — three-dialect update (2026-10-21)
 
-1. Extract this ZIP.
-2. In your GitHub repository root, upload index.html and select Replace/overwrite.
-3. Commit changes.
-4. Open the raw main/index.html file on GitHub and verify that ililîmowin is absent.
-5. Allow GitHub Pages to publish; hard-refresh the page.
+Upload these three files to the repository root, replacing identically named files:
+  index.html
+  animals.html
+  calendar.html
 
-Includes Woodland (TH), Plains (Y), and Swampy (N); keeps both Swampy syllabics charts.
-Retains existing learning activity links and adds How Cree Words Work, Saskatchewan list and map, and Body Parts links.
-Does not overwrite the linked learning pages.
+Animal Flashcards: removed Moose Cree (L) option, heading, and source-branch. Retained 29 animal cards, including the animal moose, and TH/Y/N data.
+Calendar: removed Moose Cree (L) from selectable dialects and header, preserving date controls.
+Homepage: based on most recent local audited version, with TH/Y/N language heading, existing homepage navigation.
+
+Scope: This corrects the three files here, not a full repository rewrite. The repository contains additional HTML/JS modules that cannot all be reliably reconstructed from the local source files; review remaining modules if they expose dialect menus.
+No change has been made directly to GitHub.
