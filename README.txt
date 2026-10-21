@@ -1,1 +1,1 @@
-Upload the two files to the GitHub repository root and replace matching files. This update changes category colours only and preserves all vocabulary, dialect labels and citations.
+Replace ONLY index.html in the root of your GitHub Pages repository. No other learning files are removed or changed. All 22 linked lesson pages are preserved, while the existing 7 tab buttons remain on the homepage. This package modifies homepage navigation and category colours only.
