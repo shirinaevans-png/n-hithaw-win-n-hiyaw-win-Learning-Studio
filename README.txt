@@ -1,1 +1,1 @@
-Cree sentence syntax learning page. Upload index.html and cree-syntax-word-order.html to the repository root. Keep all other website files; no live deployment performed.
+Upload every file in this ZIP to the ROOT of your existing GitHub repository; replace matching filenames. Do not delete unrelated existing files. New standalone lesson: cree-function-words.html. This package does not publish to GitHub automatically. Explicit TH/Y dialect tags come from the source dataset; otherwise entries are labeled source dialect not specified.
