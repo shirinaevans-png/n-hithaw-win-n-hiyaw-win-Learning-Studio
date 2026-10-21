@@ -1,9 +1,9 @@
-HOMEPAGE BUTTON + WOODLAND CREE WORD PARTS
+READY TO UPLOAD TO GITHUB
 
-This add-on does NOT automatically change your live GitHub homepage.
+Upload the THREE files index.html, how-woodland-cree-words-work.html, word-parts-data.js to the root of your existing repository. Replace index.html when asked. Keep all other existing site files (style.css, app.js, data.js, images, activities) untouched. Do not delete the repository.
 
-1. Upload how-woodland-cree-words-work.html and word-parts-data.js to your GitHub Pages repository root.
-2. Open index.html in GitHub and insert the contents of HOMEPAGE_BUTTON.html among your existing navigation links/cards, then commit.
-3. Once deployed, the button goes to how-woodland-cree-words-work.html.
+Homepage button: How Woodland Cree Words Work · Interactive immediately follows existing How Cree Words Work · Interactive button.
 
-NOTE: The new page currently contains 18 Woods Cree (TH) and 2 separately labeled Plains Cree (Y) examples. The title highlights Woodland Cree but does not mislabel the Plains examples. If you want only Woods Cree on the page, choose Woods Cree (TH) in the filter. The porcupine/kawiy etymology is not confirmed in the sources.
+The activity includes 18 Woods Cree (TH) teaching cards and 2 clearly labeled Plains Cree (Y) comparisons. Several segmentations are instructional and require linguistic verification before being taught as fully productive rules.
+
+After commit GitHub Pages can take time to update; refresh without cache.
