@@ -1,1 +1,2 @@
-Upload only animals.html to the GitHub repository root, replacing the existing file. The two new deer drawings are embedded in the HTML; SVG files are included only as optional references. Caribou art and 3 dialect selections remain unchanged.
+20 source-based interactive teaching cards. Open how-cree-words-work-research.html; keep word-parts-data.js in the same directory.
+This is a standalone addon, not an automatic alteration of the existing homepage. Source word forms attested; boundaries often conservatively grouped. Proposed kāwiy/porcupine connection UNVERIFIED. Do not automatically merge dialects. Copyright in original works retained by authors/publishers; this addon contains limited short examples and paraphrase.
