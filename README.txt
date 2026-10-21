@@ -1,1 +1,1 @@
-Replace only index.html in the GitHub Pages repository root. The Polysynthesis and Topicalization links now use the same learning-tile style as the rest of Grammar & Word Building. Ensure cree-polysynthesis.html and cree-topicalization.html are uploaded separately.
+Explore Words repair. Upload explore-words.html and explore-words.js to the repository root alongside your EXISTING data.js and style.css. This repair does not replace data.js, or any other existing page.

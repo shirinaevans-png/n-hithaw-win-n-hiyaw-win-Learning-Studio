@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#173d38" name="theme-color"/><meta content="IED 501 final project: interactive Cree language learning, Woodland Cree and Plains Cree, syllabics, vocabulary, and games." name="description"/><title>Vocabulary library | Cree Learning Studio</title><link href="style.css?v=full-vocabulary-20261013" rel="stylesheet"/><script defer="" src="data.js"></script><script defer="" src="app.js?v=full-vocabulary-20261013"></script><style>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#173d38" name="theme-color"/><meta content="IED 501 final project: interactive Cree language learning, Woodland Cree and Plains Cree, syllabics, vocabulary, and games." name="description"/><title>Vocabulary library | Cree Learning Studio</title><link href="style.css?v=full-vocabulary-20261013" rel="stylesheet"/><script defer="" src="data.js"></script><style>
 /* Learning Studio homepage directory: group colours identify activity types. */
 .studio-learning-directory {max-width:1320px;margin:24px auto 42px;display:grid;gap:20px}
 .directory-intro h2 {font:700 clamp(1.5rem,2.2vw,2rem) Georgia,serif;color:#193e38;margin:0 0 8px}
@@ -54,16 +54,21 @@ section.view{display:block!important}
 .quick-page-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(205px,1fr))!important;gap:14px!important}
 .quick-page-grid a{min-width:0!important;width:auto!important}
 @media(max-width:600px){.quick-page-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
-</style><style>main > section.view, main section.view.active {display:block!important;visibility:visible!important;opacity:1!important}</style></head><body>
+</style><style>main > section.view, main section.view.active {display:block!important;visibility:visible!important;opacity:1!important}</style><style>
+#words{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;padding:14px 0}
+#words .vocab-card{border:1px solid #c8d8cf;border-radius:15px;padding:16px;background:#fff;min-width:0;display:flex;flex-direction:column;gap:7px}
+#words .vocab-cree{font-weight:750;font-size:1.24rem;overflow-wrap:anywhere;color:#153e39}
+#words .vocab-en{font-size:1rem;color:#304d47}
+#words .vocab-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto}
+#words .vocab-meta span{background:#edf3f0;border-radius:6px;padding:4px 7px;font-size:.76rem;color:#36574e}
+#words .vocab-note{color:#657c73;font-size:.74rem}
+#words .empty{grid-column:1/-1;border:1px dashed #a5beb0;padding:20px;border-radius:12px}
+#loadMore{cursor:pointer;margin:14px auto;padding:12px 18px;border-radius:10px;border:1px solid #92b3a4;background:#fff;color:#123b34;font-weight:700}
+#learn .filters{display:flex;flex-wrap:wrap;gap:10px}#learn .filters select,#learn .filters input{min-height:44px;max-width:100%;border-radius:9px;padding:10px;border:1px solid #adc4b8;background:white}
+#learn .filters input{flex:2 1 260px}#learn .filters select{flex:1 1 150px}
+</style><script defer="" src="explore-words.js"></script></head><body>
 <a class="skip" href="#main">Skip to learning activities</a><header class="top"><div class="brand"><a aria-label="Home: Cree Learning Studio" class="home-brand" href="index.html"><span class="eyebrow">IED 501 · Linguistics for Language Revitalization · Final Project</span><span class="author-credit">Created, researched, and curated by Shirina Evans</span><h1>nîhithawîwin <span class="dim">|</span> nêhiyawêwin</h1><p>Learning Studio</p></a></div><div class="header-right"><span class="seal">ᐊ ᐁ ᐃ ᐅ</span><div class="status"><b id="progressNumber">0</b><span>words practised</span></div></div><div style="padding:0 22px 12px;text-align:right"><a href="references.html" style="color:inherit;text-decoration:underline;font-weight:600">References &amp; Resources</a></div></header>
 <main id="main"><nav class="page-return"><a href="index.html">← Back to Learning Studio home</a></nav>
-
-<section class="view active" id="learn"><p class="dictionary-link-note">Need a word or verb form beyond this local collection? <a href="extended-dictionaries.html">Explore the larger Plains Cree dictionary and morphology tools →</a></p><div class="section-heading"><div><span class="eyebrow">01 / Learn</span><h2>Vocabulary library</h2><p id="wordCount">Loading vocabulary…</p></div><div class="filters"><input aria-label="Search words" id="search" placeholder="Search any Cree word, English meaning, or grammar class" type="search"/><select aria-label="Topic" id="category"><option value="all">All topics</option><option value="__pronouns">Pronouns and person words</option></select><select aria-label="Writing display" id="display"><option value="roman">Roman orthography</option><option value="both">Roman + syllabics where available</option></select></div></div><div aria-live="polite" class="word-grid" id="words"></div><div class="toolbar"><button hidden="" id="loadMore" type="button">Show 100 more words</button></div></section>
-
-
-
-
-
-
+<section class="view active" id="learn"><p class="dictionary-link-note">Need a word or verb form beyond this local collection? <a href="extended-dictionaries.html">Explore the larger Plains Cree dictionary and morphology tools →</a></p><div class="section-heading"><div><span class="eyebrow">01 / Learn</span><h2>Vocabulary library</h2><p id="wordCount">Loading vocabulary…</p></div><div class="filters"><select aria-label="Cree dialect" id="dialect"><option value="all">All dialects</option><option value="woodland">Woodland Cree (TH)</option><option value="plains">Plains Cree (Y)</option><option value="uncategorized">Dialect not assigned</option></select><input aria-label="Search words" autocomplete="off" id="search" placeholder="Search any Cree word, English meaning, or grammar class" type="search"/><select aria-label="Topic" id="category"><option value="all">All topics</option><option value="__pronouns">Pronouns and person words</option></select><select aria-label="Writing display" id="display"><option value="roman">Roman orthography</option><option value="both">Roman + syllabics where available</option></select></div></div><div aria-live="polite" class="word-grid" id="words" role="list"></div><div class="toolbar"><button hidden="" id="loadMore" type="button">Show 100 more words</button></div></section>
 </main><footer><span>nîhithawîwin | nêhiyawêwin Learning Studio</span><span>Created, researched, and curated by Shirina Evans</span></footer>
 </body></html>
