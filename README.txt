@@ -1,2 +1,1 @@
-TRUE SEPARATE PAGES · 2026-10-21
-Upload all 8 HTML files to the root of your existing GitHub Pages repository. Retain data.js, app.js, style.css and all existing lessons. The homepage now contains zero activity sections. Each activity page contains only its own section. Quick Tools use separate .html URLs. Do not upload an older index.html afterwards.
+FIX: Standalone activities were blank because each page was incorrectly given data-tool-page="learn", triggering CSS rules that hid all activity sections. This package removes the marker and conflicting CSS on all seven standalone pages. Upload all eight HTML files into repository root, replacing matches. Keep existing app.js, data.js and style.css. Homepage remains a navigation page.
