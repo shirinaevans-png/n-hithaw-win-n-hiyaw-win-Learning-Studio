@@ -1,1 +1,1 @@
-Upload both HTML and JS files to the repository root and replace matching files. All six word categories receive teal/gold colouring ONLY when the recorded grammar label explicitly identifies animate (PR-AN, NA, VAI, VTA) or inanimate (PR-IN, NI, VII, VTI). Unmarked categories retain their colour and show Animacy not marked. No vocabulary or dialect classifications were modified.
+Corrected: exchanged TH squirrel and porcupine picture assignments only. No words, translations, other pictures, or behaviour modified. Upload animals.html to repository root and commit.
