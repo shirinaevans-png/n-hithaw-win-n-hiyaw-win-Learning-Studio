@@ -1,1 +1,1 @@
-Replace ONLY index.html in the root of your GitHub Pages repository. No other learning files are removed or changed. All 22 linked lesson pages are preserved, while the existing 7 tab buttons remain on the homepage. This package modifies homepage navigation and category colours only.
+Upload how-woodland-cree-words-work.html and word-parts-data.js to the main folder of your GitHub Pages repository. Replace matching files; keep all other files. The fix excludes empty dialect/topic combinations, explains when a category is unavailable, and does not alter Cree source entries.

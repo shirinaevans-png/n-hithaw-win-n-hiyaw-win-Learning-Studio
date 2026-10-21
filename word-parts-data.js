@@ -35,7 +35,7 @@ window.CREE_WORD_PARTS = [
         "A dependent stem, not a freestanding unpossessed word."
       ]
     ],
-    "note": "Ratt lists -kāwiy- and nikāwīnān as a dependent stem and an attested possessed form.",
+    "note": "Ratt lists -kāwiy- and nikāwīnān. A historical connection to a porcupine term is a user-proposed hypothesis, not established by these sources.",
     "source": "Ratt, Woods Cree Stories, glossary",
     "page": 98,
     "status": "attested",
