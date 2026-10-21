@@ -1,5 +1,10 @@
-GitHub Pages overlay. Upload all files in this ZIP directly to the repository root, replacing only files with matching names. Do not delete other project files.
+Cree Learning Studio — Woodland Cree (TH) animal card illustration fixes
 
-Fixes quiz data: animacy-full-data.js is required and INCLUDED. If the selected topic has under 10 nouns, the quiz includes supplementary words from the same dialect and explicitly tells the learner.
-Morphology lesson: cree-word-endings.html, linked from the included index.html and animate-inanimate-cree.html.
-This upload package does not publish to GitHub automatically.
+Upload animals.html to the ROOT of your GitHub repository, replacing the old animals.html.
+Upload the animal-images folder (including the th subfolder and all six PNGs) to the ROOT of your GitHub repository.
+DO NOT delete existing files in the repository.
+
+Only the TH illustrations for Duck, Goose, Porcupine, Frog, Lynx and Squirrel have changed.
+Existing Cree words, dialect-specific vocabulary, all other illustrations, and citations remain unchanged.
+
+After committing, allow GitHub Pages to deploy and refresh animals.html with Ctrl+F5.
