@@ -1,1 +1,1 @@
-Upload how-woodland-cree-words-work.html and word-parts-data.js to the main folder of your GitHub Pages repository. Replace matching files; keep all other files. The fix excludes empty dialect/topic combinations, explains when a category is unavailable, and does not alter Cree source entries.
+Upload cree-function-words.html and cree-function-words-data.js to the repository root, replacing matching files. Demonstratives and pronouns with PR-AN now show animate colours (teal); PR-IN shows inanimate colours (gold). Other categories keep their previous colours.
