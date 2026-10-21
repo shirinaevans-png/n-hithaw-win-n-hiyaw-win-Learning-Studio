@@ -1,1 +1,2 @@
-These are real separate URLs, with one screen visible per page. Upload ALL seven HTML files to the repository ROOT replacing matching files. The current app.js, data.js and style.css remain in place. Quick-tool links open pages rather than tabs. The other screens stay hidden in each file to preserve compatibility with the pre-existing app.js bindings. For an updated homepage hard-refresh (Ctrl+F5).
+TRUE SEPARATE PAGES · 2026-10-21
+Upload all 8 HTML files to the root of your existing GitHub Pages repository. Retain data.js, app.js, style.css and all existing lessons. The homepage now contains zero activity sections. Each activity page contains only its own section. Quick Tools use separate .html URLs. Do not upload an older index.html afterwards.
