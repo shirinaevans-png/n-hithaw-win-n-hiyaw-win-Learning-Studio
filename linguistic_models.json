@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "0.1-research",
+  "policy": {
+    "dialects": [
+      "woods-th",
+      "plains-y"
+    ],
+    "other_dialects": "comparative research only; hidden from public selector",
+    "default_generation": "blocked_until_verified",
+    "evidence_levels": [
+      "source_attested",
+      "cross_dialect_analogy",
+      "hypothesis",
+      "community_validated"
+    ],
+    "source_first": true
+  },
+  "components": [
+    {
+      "id": "lexicon",
+      "features": [
+        "lemma",
+        "part_of_speech",
+        "noun_animacy",
+        "noun_dependency",
+        "verb_class",
+        "stem_subclass",
+        "locality",
+        "orthography",
+        "source_page",
+        "review_status"
+      ]
+    },
+    {
+      "id": "nominal_inflection",
+      "features": [
+        "animacy",
+        "number",
+        "obviation",
+        "locative",
+        "possessor_person",
+        "possessor_number",
+        "diminutive",
+        "morphophonemics"
+      ],
+      "constraints": [
+        "Plains Cree (Snoek et al. 2014): locative and number/obviation are mutually exclusive in presented patterns",
+        "Possessive prefixes and suffixes must be paired by paradigm",
+        "Do not transfer nominal suffixes to TH without evidence"
+      ]
+    },
+    {
+      "id": "verbal_inflection",
+      "features": [
+        "stem_class:VAI/VII/VTA/VTI",
+        "order:independent/conjunct/imperative/delayed_imperative/subjunctive",
+        "actor",
+        "goal",
+        "person",
+        "number",
+        "obviation",
+        "direction",
+        "central_agreement",
+        "peripheral_agreement",
+        "preverb_sequence",
+        "morphophonemics"
+      ],
+      "constraints": [
+        "Require paradigm source for dialect+verb class+order+actor+goal",
+        "Do not infer form by direct concatenation"
+      ]
+    },
+    {
+      "id": "negation",
+      "features": [
+        "negator",
+        "assertion_status",
+        "order",
+        "clause_type",
+        "source_locality"
+      ],
+      "constraints": [
+        "Woods Cree Starks 1987: negative particle selection not reducible to independent vs conjunct; requires assertion/presupposition context"
+      ]
+    },
+    {
+      "id": "conditionals",
+      "features": [
+        "condition_type:realis/irrealis/counterfactual/generic",
+        "conditional_clause",
+        "result_clause",
+        "verb_order",
+        "source_dialect"
+      ],
+      "constraints": [
+        "Use Cote/Ratt/Klokeid 1987 patterns only after dialect/source interpretation"
+      ]
+    },
+    {
+      "id": "discourse",
+      "features": [
+        "genre:narrative/conversation",
+        "proximate_referent",
+        "obviative_referents",
+        "discourse_salience",
+        "clause_linkage"
+      ],
+      "constraints": [
+        "Do not assume freely ordered words correspond to freely assigned semantic roles"
+      ]
+    },
+    {
+      "id": "phonology_orthography",
+      "features": [
+        "community_orthography",
+        "SRO",
+        "syllabics",
+        "phoneme_correspondence",
+        "morphophoneme_alternation"
+      ],
+      "constraints": [
+        "Do not mechanically y→th convert words as a general dictionary rule",
+        "Preserve attested spelling and variant metadata"
+      ]
+    }
+  ],
+  "source_map": {
+    "woodsSyntax": "Starks, Aspects of Woods Cree Syntax (1992)",
+    "plainsSyntax": "Dahlstrom, Plains Cree Morphosyntax (1991)",
+    "woodsNegation": "Starks, Negation (1987)",
+    "plainsNouns": "Snoek et al., Modeling the Noun Morphology of Plains Cree (2014)",
+    "crossDialect": "Kang, Morphological Variation in Cree Inflection (2017)",
+    "obviation": "Volchok, A Synthesis of Obviation in Algonquian Languages (2019)",
+    "conditional": "Cote/Ratt/Klokeid, Conditional Sentences (1987)",
+    "historical": "Pentland, The Missinipi Dialect of Cree (2003)"
+  }
+}
