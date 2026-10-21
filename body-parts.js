@@ -1,162 +1,28 @@
-use strict';
-const PARTS = [
-  {id:'hair', en:'Hair', cr:'mêstakaya', x:50, y:11},
-  {id:'head', en:'Head', cr:'mistikwân', x:50, y:21},
-  {id:'eye', en:'Eye', cr:'miskîsik', x:45, y:25},
-  {id:'nose', en:'Nose', cr:'mikot', x:50, y:28},
-  {id:'ear', en:'Ear', cr:'mihtawakay', x:61, y:25},
-  {id:'mouth', en:'Mouth', cr:'mitôn', x:50, y:32},
-  {id:'shoulder', en:'Shoulder', cr:'mitihtimon', x:34, y:43},
-  {id:'arm', en:'Arm', cr:'mispiton', x:67, y:45},
-  {id:'hand', en:'Hand', cr:'micihciy', x:65, y:57},
-  {id:'stomach', en:'Stomach', cr:'matay', x:50, y:54},
-  {id:'leg', en:'Leg', cr:'miskât', x:42, y:80},
-  {id:'foot', en:'Foot', cr:'misit', x:62, y:96}
+"use strict";
+// Vocabulary transcribed from the user's body-parts reference image.
+// Order here corresponds to the numbered targets, not the shuffled word cards.
+const parts=[
+ {en:"Hair",cr:"mêstakaya",x:49,y:11},
+ {en:"Head",cr:"mistikwân",x:53,y:19},
+ {en:"Nose",cr:"mikot",x:51,y:28},
+ {en:"Eye",cr:"miskîsik",x:43,y:26},
+ {en:"Ear",cr:"mihtawakay",x:64,y:26},
+ {en:"Mouth",cr:"mitôn",x:52,y:32},
+ {en:"Shoulder",cr:"mitihtimon",x:33,y:43},
+ {en:"Arm",cr:"mispiton",x:68,y:48},
+ {en:"Hand",cr:"micihciy",x:66,y:56},
+ {en:"Stomach",cr:"matay",x:51,y:52},
+ {en:"Leg",cr:"miskât",x:44,y:76},
+ {en:"Foot",cr:"misit",x:63,y:92}
 ];
-
-const $ = id => document.getElementById(id);
-let matched = new Set();
-let selectedId = null;
-let wordOrder = [];
-
-function shuffle(arr){
-  const copy = [...arr];
-  for(let i = copy.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
-function partById(id){
-  return PARTS.find(p => p.id === id);
-}
-
-function renderWords(){
-  const list = $('wordList');
-  list.replaceChildren();
-  wordOrder.forEach(id => {
-    const p = partById(id);
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'word-btn';
-    if(matched.has(id)) btn.classList.add('done');
-    if(selectedId === id) btn.classList.add('selected');
-    btn.disabled = matched.has(id);
-    btn.innerHTML = `<strong>${p.cr}</strong>${matched.has(id) ? '<span>Matched</span>' : '<span>Click, then choose on the picture</span>'}`;
-    btn.addEventListener('click', () => {
-      selectedId = id;
-      $('currentWord').textContent = `${p.cr}`;
-      $('feedback').textContent = 'Now click the matching body part on the picture.';
-      renderWords();
-      renderHotspots();
-    });
-    list.append(btn);
-  });
-}
-
-function renderHotspots(){
-  const wrap = $('hotspots');
-  wrap.replaceChildren();
-  PARTS.forEach(p => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'hotspot';
-    btn.style.left = p.x + '%';
-    btn.style.top = p.y + '%';
-    btn.setAttribute('aria-label', p.en);
-    if(matched.has(p.id)) btn.classList.add('matched');
-    if(selectedId === p.id) btn.classList.add('targeting');
-    btn.addEventListener('click', () => handleHotspotClick(p.id, btn));
-    wrap.append(btn);
-  });
-}
-
-function updateProgress(){
-  const count = matched.size;
-  const total = PARTS.length;
-  const percent = Math.round((count / total) * 100);
-  $('progressText').textContent = `${count} / ${total} matched`;
-  $('progressPercent').textContent = `${percent}%`;
-  $('progressFill').style.width = `${percent}%`;
-  if(count === total){
-    $('currentWord').textContent = 'All done!';
-    $('feedback').textContent = 'Excellent — you matched all of the body-part words.';
-    selectedId = null;
-  }
-}
-
-function chooseNextWord(){
-  const remaining = wordOrder.filter(id => !matched.has(id));
-  selectedId = remaining.length ? remaining[0] : null;
-  if(selectedId){
-    $('currentWord').textContent = partById(selectedId).cr;
-  }
-}
-
-function handleHotspotClick(clickedId, el){
-  if(matched.size === PARTS.length){
-    $('feedback').textContent = 'You already finished the activity. Use Reset activity to play again.';
-    return;
-  }
-  if(!selectedId){
-    $('feedback').textContent = 'Choose a Cree word first.';
-    return;
-  }
-  if(clickedId === selectedId){
-    matched.add(clickedId);
-    const p = partById(clickedId);
-    $('feedback').textContent = `Correct! ${p.cr} = ${p.en}.`;
-    chooseNextWord();
-    if(selectedId){
-      $('currentWord').textContent = partById(selectedId).cr;
-    }
-    renderWords();
-    renderHotspots();
-    updateProgress();
-  } else {
-    $('feedback').textContent = 'Not quite. Try another circle.';
-    el.classList.add('wrong');
-    setTimeout(() => el.classList.remove('wrong'), 420);
-  }
-}
-
-function renderStudy(){
-  const grid = $('studyGrid');
-  grid.replaceChildren();
-  PARTS.forEach(p => {
-    const card = document.createElement('article');
-    card.className = 'study-item';
-    card.innerHTML = `<p class="study-cree">${p.cr}</p><p class="study-en">${p.en}</p>`;
-    grid.append(card);
-  });
-}
-
-function resetActivity(shuffleWords = false){
-  matched = new Set();
-  if(shuffleWords || !wordOrder.length) wordOrder = shuffle(PARTS.map(p => p.id));
-  selectedId = null;
-  $('currentWord').textContent = 'Choose a word to begin.';
-  $('feedback').textContent = 'Ready when you are.';
-  renderWords();
-  renderHotspots();
-  updateProgress();
-}
-
-function switchPanel(which){
-  const match = which === 'match';
-  $('matchPanel').hidden = !match;
-  $('studyPanel').hidden = match;
-  $('matchTab').classList.toggle('active', match);
-  $('studyTab').classList.toggle('active', !match);
-  $('matchTab').setAttribute('aria-selected', String(match));
-  $('studyTab').setAttribute('aria-selected', String(!match));
-}
-
-$('resetBtn').addEventListener('click', () => resetActivity(false));
-$('shuffleBtn').addEventListener('click', () => resetActivity(true));
-$('matchTab').addEventListener('click', () => switchPanel('match'));
-$('studyTab').addEventListener('click', () => switchPanel('study'));
-
-renderStudy();
-resetActivity(true);
+const $=id=>document.getElementById(id);
+const randomize=arr=>{let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+let order=[],chosen=null,done=new Set();
+function status(message){$('feedback').textContent=message;}
+function update(){let n=done.size;$('count').textContent=`${n} of ${parts.length} matched`;$('percent').textContent=Math.round(100*n/parts.length)+'%';$('fill').style.width=(100*n/parts.length)+'%';}
+function renderWords(){let list=$('wordList');list.replaceChildren();order.forEach(i=>{let p=parts[i],b=document.createElement('button');b.type='button';b.className='word'+(chosen===i?' selected':'')+(done.has(i)?' correct':'');b.disabled=done.has(i);b.setAttribute('aria-pressed',String(chosen===i));let t=document.createElement('strong');t.textContent=p.cr;b.append(t);if(done.has(i)){let tick=document.createElement('span');tick.className='hint';tick.textContent='✓ '+p.en;b.append(tick)}b.addEventListener('click',()=>{chosen=i;renderWords();status('Now click the matching numbered circle.');});list.append(b);});}
+function renderTargets(){let box=$('numbers');box.replaceChildren();parts.forEach((p,i)=>{let b=document.createElement('button');b.type='button';b.className='number'+(done.has(i)?' correct':'');b.style.left=p.x+'%';b.style.top=p.y+'%';b.textContent=i+1;b.setAttribute('aria-label','Number '+(i+1));b.disabled=done.has(i);b.addEventListener('click',()=>{if(chosen===null){status('Choose a Cree word first.');return;}if(chosen===i){done.add(i);chosen=null;status('Correct! '+p.cr+' means '+p.en+'.');renderTargets();renderWords();update();if(done.size===parts.length)status('All 12 matched. Great work! You can reset to play again.');}else{status('Not quite. Try another number.');b.classList.remove('wrong');void b.offsetWidth;b.classList.add('wrong');}});box.append(b);});}
+function start(newOrder){if(newOrder||order.length===0)order=randomize(parts.map((_,i)=>i));done=new Set();chosen=null;renderWords();renderTargets();update();status('Choose a word to begin.');}
+function studyInit(){let box=$('studyGrid');parts.forEach(p=>{let div=document.createElement('div');div.className='study-card';let cr=document.createElement('strong');cr.textContent=p.cr;let en=document.createElement('span');en.textContent=p.en;div.append(cr,en);box.append(div);});}
+$('restart').addEventListener('click',()=>start(false));$('shuffle').addEventListener('click',()=>start(true));$('studyToggle').addEventListener('click',()=>{let st=$('study');st.hidden=!st.hidden;$('studyToggle').textContent=st.hidden?'Study word list':'Hide word list';if(!st.hidden)st.scrollIntoView({behavior:'smooth',block:'nearest'});});
+studyInit();start(true);

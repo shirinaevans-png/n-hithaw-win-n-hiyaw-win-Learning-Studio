@@ -1,15 +1,15 @@
-BODY PARTS · INTERACTIVE TOOL
+BODY PARTS NUMBER MATCHING GAME
 
-Upload these files to the ROOT of your GitHub Pages repository:
-- index.html
-- body-parts.html
-- body-parts.css
-- body-parts.js
+Upload the SIX files in this ZIP into the ROOT of your existing GitHub Pages repository, replacing files with matching names:
 
-This version:
-- titles the page Body Parts
-- uses a cartoon-style illustration with a high bun, big glasses, and oversized scrunchie
-- does NOT show text labels on the picture
-- lets students choose a Cree word and click the correct body part
-- does NOT reveal the correct answer after a wrong guess
-- includes a separate Study word list tab
+index.html
+body-parts.html
+body-parts.css
+body-parts.js
+body-parts-girl.png
+
+Do not delete other files.
+
+The title is Body Parts. Learners choose from shuffled Cree words and click numbered hotspots. Incorrect guesses never reveal the correct answer. The English list is in an optional Study word list section (closed by default).
+
+Vocabulary is transcribed from the supplied reference poster; confirm dialect-specific orthography before treating these as authoritative Lac La Ronge Woodland Cree forms.
