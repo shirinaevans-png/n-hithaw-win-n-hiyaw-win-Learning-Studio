@@ -1,18 +1,11 @@
-CREE LEARNING STUDIO - BODY PARTS IMAGE AND HOMEPAGE LINK FIX
+CREE PLACE NAMES — GITHUB PAGES
 
-Upload these four files to the ROOT of your existing GitHub Pages repository:
-  index.html
-  body-parts.html
-  body-parts.css
-  body-parts.js
+Upload cree-place-names.html to your repository root. It works as a standalone page and links back to index.html.
 
-Replace any existing files with the same names.
-Do not delete any other files or folders in your repository.
+To add a homepage link WITHOUT replacing your current homepage, add the following anchor inside your existing navigation near the other learning tools:
 
-The new body-parts.html includes the poster image directly inside the page, so no assets directory is required. The homepage index.html adds a Body Parts navigation button and preserves the Word Formation link and other existing navigation from the latest supplied homepage version.
+<a href="cree-place-names.html">Saskatchewan Cree Place Names</a>
 
-After committing, open:
-https://shirinaevans-png.github.io/n-hithaw-win-n-hiyaw-win-Learning-Studio/body-parts.html
-Refresh the page with Ctrl+F5 if your browser has cached the prior version.
+The included CSV is a research companion and need not be uploaded.
 
-Note: the word forms are those previously provided for the illustration; dialect-specific validation remains distinct from this technical repair.
+Source text and spelling are retained as printed. Individual dialect attribution is not asserted.
