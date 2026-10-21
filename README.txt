@@ -1,1 +1,1 @@
-Upload all four HTML files to the GitHub Pages repository root. The two new lessons are separate pages, and the syntax and homepage files contain links to them. This ZIP does not modify flashcards, animals or the matching game.
+Replace only index.html in the GitHub Pages repository root. The Polysynthesis and Topicalization links now use the same learning-tile style as the rest of Grammar & Word Building. Ensure cree-polysynthesis.html and cree-topicalization.html are uploaded separately.
