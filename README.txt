@@ -1,9 +1,7 @@
-READY TO UPLOAD TO GITHUB
+EXPANDED CREE ANIMACY INVENTORY
 
-Upload the THREE files index.html, how-woodland-cree-words-work.html, word-parts-data.js to the root of your existing repository. Replace index.html when asked. Keep all other existing site files (style.css, app.js, data.js, images, activities) untouched. Do not delete the repository.
+The supplied data.js was parsed: 5,819 vocabulary entries. The included noun inventory extracts every entry with explicit NA, NI, NDA, or NDI grammar tags, preserves citation and original grammatical tag, and marks conflicting noun classes for review. The full CSV includes all extracted records and a small number of separate Plains Cree starter spreadsheet entries. This is exhaustive for tagged nouns in the provided database, NOT exhaustive of all Cree nouns or untagged words.
 
-Homepage button: How Woodland Cree Words Work · Interactive immediately follows existing How Cree Words Work · Interactive button.
+For GitHub: replace index.html and animate-inanimate-cree.html; add animacy-full-data.js. The homepage has two separate animate/inanimate links. Keep all existing website files. animacy-data.js and the word-parts files are included for continuity. Source attributions were not guessed from spellings; uncategorized BC/LKSC material is identified as Plains Cree on the basis of the separately provided Ratt Cree categorized workbook.
 
-The activity includes 18 Woods Cree (TH) teaching cards and 2 clearly labeled Plains Cree (Y) comparisons. Several segmentations are instructional and require linguistic verification before being taught as fully productive rules.
-
-After commit GitHub Pages can take time to update; refresh without cache.
+The interactive page shows up to 500 matching entries per column to keep browsing responsive. Search to narrow; the CSV contains all records. Quiz retains its original 22 selected teaching examples.
